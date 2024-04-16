@@ -40,13 +40,21 @@ create table sets
 create table statistics
 (
     id         serial primary key,
-    date timestamp not null default now(),
+    time timestamp not null default now(),
     quantity   int      not null,
     weight      double precision      not null,
     set_id int not null,
     exercise_id int not null,
     trains_day_id int not null,
     program_id int not null
+);
+
+create table users_programs
+(
+    id         serial primary key,
+    user_id      int      not null,
+    program_id   int      not null,
+    foreign key (program_id) references train_programs(id) on delete cascade
 );
 
 create table days_programs
@@ -90,6 +98,7 @@ drop table statistics_sets;
 drop table sets_exercises;
 drop table exercises_days;
 drop table days_programs;
+drop table users_programs;
 drop table statistics;
 drop table sets;
 drop table exercises;
