@@ -32,55 +32,55 @@ option(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
 service TrainingV1{
   rpc GetTrainingPrograms(GetRequest) returns (GetTrainingProgramsResponse){// получить список тренировочных программ
     option(google.api.http) = {
-      get: "/api/programs"
+      get: "/api/programs/{id}"
     };
   }
 
   rpc GetTrainingProgram(GetRequest) returns (GetTrainingProgramResponse){// получить одну тренировочную программу
     option(google.api.http) = {
-      get: "/api/programs/{id}"
+      get: "/api/program/{id}"
     };
   }
 
   rpc GetTrainDays(GetRequest) returns (GetTrainDaysResponse){// получить список тренировочных дней
     option(google.api.http) = {
-      get: "/api/programs/train_days"
+      get: "/api/programs/train_days/{id}"
     };
   }
 
   rpc GetTrainDay(GetRequest) returns (GetTrainDayResponse){// получить один тренировочный день
     option(google.api.http) = {
-      get: "/api/programs/train_days/{id}"
+      get: "/api/programs/train_day/{id}"
     };
   }
 
   rpc GetExercises(GetRequest) returns (GetExercisesResponse){// получить список упражнений
     option(google.api.http) = {
-      get: "/api/programs/train_days/exercises"
+      get: "/api/programs/train_days/exercises/{id}"
     };
   }
 
   rpc GetExercise(GetRequest) returns (GetExerciseResponse){// получить одно упражнение
     option(google.api.http) = {
-      get: "/api/programs/train_days/exercises/{id}"
+      get: "/api/programs/train_days/exercise/{id}"
     };
   }
 
   rpc GetSets(GetRequest) returns (GetSetsResponse){// получить список подходов
     option(google.api.http) = {
-      get: "/api/programs/train_days/exercises/sets"
+      get: "/api/programs/train_days/exercises/sets/{id}"
     };
   }
 
   rpc GetSet(GetRequest) returns (GetSetResponse){// получить один подход
     option(google.api.http) = {
-      get: "/api/programs/train_days/exercises/sets/{id}"
+      get: "/api/programs/train_days/exercises/set/{id}"
     };
   }
 
   rpc GetStatistic(GetRequest) returns (GetStatisticResponse){// получить статистику по подходу
     option(google.api.http) = {
-      get: "/api/programs/train_days/exercises/sets/statistic"
+      get: "/api/programs/train_days/exercises/sets/statistic/{id}"
     };
   }
 
@@ -196,7 +196,8 @@ message TrainDayInfo{
 message ExerciseInfo{
   string exercise_name = 1;
   int64 day_id = 2;
-  string description = 3;
+  string pictures = 3;
+  string description = 4;
 }
 
 message SetInfo{
@@ -230,7 +231,8 @@ message UpdateTrainDayInfo{
 
 message UpdateExerciseInfo{
   google.protobuf.StringValue exercise_name = 1;
-  google.protobuf.StringValue description = 2;
+  google.protobuf.StringValue pictures = 2;
+  google.protobuf.StringValue description = 3;
 }
 
 message UpdateSetInfo{
@@ -339,19 +341,19 @@ message GetRequest{
 }
 
 message GetTrainingProgramsResponse{
-  repeated TrainingProgram traing_programs = 1;
+  repeated TrainingProgram train_programs = 1;
 }
 
 message GetTrainingProgramResponse{
-  TrainingProgram traing_program = 1;
+  TrainingProgram train_program = 1;
 }
 
 message GetTrainDaysResponse{
-  repeated TrainDay traing_days = 1;
+  repeated TrainDay train_days = 1;
 }
 
 message GetTrainDayResponse{
-  TrainDay traing_day = 1;
+  TrainDay train_day = 1;
 }
 
 message GetExercisesResponse{

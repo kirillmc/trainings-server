@@ -12,6 +12,13 @@ func (s *serv) GetProgram(ctx context.Context, id int64) (*model.TrainProgram, e
 		return nil, err
 	}
 
+	userId, err := s.trainingRepository.GetUserIdByProgramId(ctx, program.Id)
+	if err != nil {
+		return nil, err
+	}
+
+	program.UserId = userId
+
 	return program, nil
 }
 
@@ -20,6 +27,13 @@ func (s *serv) GetTrainDay(ctx context.Context, id int64) (*model.TrainDay, erro
 	if err != nil {
 		return nil, err
 	}
+
+	programId, err := s.trainingRepository.GetProgramIdByTrainDayId(ctx, trainDay.Id)
+	if err != nil {
+		return nil, err
+	}
+
+	trainDay.ProgramId = programId
 
 	return trainDay, nil
 }
@@ -30,6 +44,13 @@ func (s *serv) GetExercise(ctx context.Context, id int64) (*model.Exercise, erro
 		return nil, err
 	}
 
+	traindDayId, err := s.trainingRepository.GetTrainDayIdByExerciseId(ctx, exercise.Id)
+	if err != nil {
+		return nil, err
+	}
+
+	exercise.DayId = traindDayId
+
 	return exercise, nil
 }
 
@@ -38,6 +59,13 @@ func (s *serv) GetSet(ctx context.Context, id int64) (*model.Set, error) {
 	if err != nil {
 		return nil, err
 	}
+
+	exerciseId, err := s.trainingRepository.GetExerciseIdBySetId(ctx, set.Id)
+	if err != nil {
+		return nil, err
+	}
+
+	set.ExerciseId = exerciseId
 
 	return set, nil
 }

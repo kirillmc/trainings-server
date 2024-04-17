@@ -29,7 +29,7 @@ func ToGetTrainDaysResponseFromService(trainDays []*model.TrainDay) *desc.GetTra
 	for _, elem := range trainDays {
 		trainDayList = append(trainDayList, ToGetTrainDayResponseFromService(elem))
 	}
-	return &desc.GetTrainDaysResponse{TraingDays: trainDayList}
+	return &desc.GetTrainDaysResponse{TrainDays: trainDayList}
 }
 
 func ToTrainDayUpdateFromDesc(trainDay *desc.UpdateTrainDayRequest) *model.TrainDayToUpdate {

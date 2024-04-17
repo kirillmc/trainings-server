@@ -25,15 +25,15 @@
     "application/json"
   ],
   "paths": {
-    "/api/programs": {
+    "/api/program/{id}": {
       "get": {
-        "summary": "получить список тренировочных программ",
-        "operationId": "TrainingV1_GetTrainingPrograms",
+        "summary": "получить одну тренировочную программу",
+        "operationId": "TrainingV1_GetTrainingProgram",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/training_v1GetTrainingProgramsResponse"
+              "$ref": "#/definitions/training_v1GetTrainingProgramResponse"
             }
           },
           "default": {
@@ -46,8 +46,8 @@
         "parameters": [
           {
             "name": "id",
-            "in": "query",
-            "required": false,
+            "in": "path",
+            "required": true,
             "type": "string",
             "format": "int64"
           }
@@ -55,7 +55,9 @@
         "tags": [
           "TrainingV1"
         ]
-      },
+      }
+    },
+    "/api/programs": {
       "delete": {
         "summary": "удалить одну тренировочную программу",
         "operationId": "TrainingV1_DeleteTrainingProgram",
@@ -151,15 +153,15 @@
         ]
       }
     },
-    "/api/programs/train_days": {
+    "/api/programs/train_day/{id}": {
       "get": {
-        "summary": "получить список тренировочных дней",
-        "operationId": "TrainingV1_GetTrainDays",
+        "summary": "получить один тренировочный день",
+        "operationId": "TrainingV1_GetTrainDay",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/training_v1GetTrainDaysResponse"
+              "$ref": "#/definitions/training_v1GetTrainDayResponse"
             }
           },
           "default": {
@@ -172,8 +174,8 @@
         "parameters": [
           {
             "name": "id",
-            "in": "query",
-            "required": false,
+            "in": "path",
+            "required": true,
             "type": "string",
             "format": "int64"
           }
@@ -181,7 +183,9 @@
         "tags": [
           "TrainingV1"
         ]
-      },
+      }
+    },
+    "/api/programs/train_days": {
       "delete": {
         "summary": "удалить один тренировочный день",
         "operationId": "TrainingV1_DeleteTrainDay",
@@ -277,15 +281,15 @@
         ]
       }
     },
-    "/api/programs/train_days/exercises": {
+    "/api/programs/train_days/exercise/{id}": {
       "get": {
-        "summary": "получить список упражнений",
-        "operationId": "TrainingV1_GetExercises",
+        "summary": "получить одно упражнение",
+        "operationId": "TrainingV1_GetExercise",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/training_v1GetExercisesResponse"
+              "$ref": "#/definitions/training_v1GetExerciseResponse"
             }
           },
           "default": {
@@ -298,8 +302,8 @@
         "parameters": [
           {
             "name": "id",
-            "in": "query",
-            "required": false,
+            "in": "path",
+            "required": true,
             "type": "string",
             "format": "int64"
           }
@@ -307,7 +311,9 @@
         "tags": [
           "TrainingV1"
         ]
-      },
+      }
+    },
+    "/api/programs/train_days/exercises": {
       "delete": {
         "summary": "удалить одно упражнение",
         "operationId": "TrainingV1_DeleteExercise",
@@ -403,15 +409,15 @@
         ]
       }
     },
-    "/api/programs/train_days/exercises/sets": {
+    "/api/programs/train_days/exercises/set/{id}": {
       "get": {
-        "summary": "получить список подходов",
-        "operationId": "TrainingV1_GetSets",
+        "summary": "получить один подход",
+        "operationId": "TrainingV1_GetSet",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/training_v1GetSetsResponse"
+              "$ref": "#/definitions/training_v1GetSetResponse"
             }
           },
           "default": {
@@ -424,8 +430,8 @@
         "parameters": [
           {
             "name": "id",
-            "in": "query",
-            "required": false,
+            "in": "path",
+            "required": true,
             "type": "string",
             "format": "int64"
           }
@@ -433,7 +439,9 @@
         "tags": [
           "TrainingV1"
         ]
-      },
+      }
+    },
+    "/api/programs/train_days/exercises/sets": {
       "delete": {
         "summary": "удалить один подход",
         "operationId": "TrainingV1_DeleteSet",
@@ -530,36 +538,6 @@
       }
     },
     "/api/programs/train_days/exercises/sets/statistic": {
-      "get": {
-        "summary": "получить статистику по подходу",
-        "operationId": "TrainingV1_GetStatistic",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/training_v1GetStatisticResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "id",
-            "in": "query",
-            "required": false,
-            "type": "string",
-            "format": "int64"
-          }
-        ],
-        "tags": [
-          "TrainingV1"
-        ]
-      },
       "delete": {
         "summary": "удалить статистику по подходу",
         "operationId": "TrainingV1_DeleteStatistic",
@@ -655,15 +633,47 @@
         ]
       }
     },
-    "/api/programs/train_days/exercises/sets/{id}": {
+    "/api/programs/train_days/exercises/sets/statistic/{id}": {
       "get": {
-        "summary": "получить один подход",
-        "operationId": "TrainingV1_GetSet",
+        "summary": "получить статистику по подходу",
+        "operationId": "TrainingV1_GetStatistic",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/training_v1GetSetResponse"
+              "$ref": "#/definitions/training_v1GetStatisticResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "TrainingV1"
+        ]
+      }
+    },
+    "/api/programs/train_days/exercises/sets/{id}": {
+      "get": {
+        "summary": "получить список подходов",
+        "operationId": "TrainingV1_GetSets",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/training_v1GetSetsResponse"
             }
           },
           "default": {
@@ -689,13 +699,13 @@
     },
     "/api/programs/train_days/exercises/{id}": {
       "get": {
-        "summary": "получить одно упражнение",
-        "operationId": "TrainingV1_GetExercise",
+        "summary": "получить список упражнений",
+        "operationId": "TrainingV1_GetExercises",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/training_v1GetExerciseResponse"
+              "$ref": "#/definitions/training_v1GetExercisesResponse"
             }
           },
           "default": {
@@ -721,13 +731,13 @@
     },
     "/api/programs/train_days/{id}": {
       "get": {
-        "summary": "получить один тренировочный день",
-        "operationId": "TrainingV1_GetTrainDay",
+        "summary": "получить список тренировочных дней",
+        "operationId": "TrainingV1_GetTrainDays",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/training_v1GetTrainDayResponse"
+              "$ref": "#/definitions/training_v1GetTrainDaysResponse"
             }
           },
           "default": {
@@ -753,13 +763,13 @@
     },
     "/api/programs/{id}": {
       "get": {
-        "summary": "получить одну тренировочную программу",
-        "operationId": "TrainingV1_GetTrainingProgram",
+        "summary": "получить список тренировочных программ",
+        "operationId": "TrainingV1_GetTrainingPrograms",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/training_v1GetTrainingProgramResponse"
+              "$ref": "#/definitions/training_v1GetTrainingProgramsResponse"
             }
           },
           "default": {
@@ -884,6 +894,9 @@
           "type": "string",
           "format": "int64"
         },
+        "pictures": {
+          "type": "string"
+        },
         "description": {
           "type": "string"
         }
@@ -940,7 +953,7 @@
     "training_v1GetTrainDayResponse": {
       "type": "object",
       "properties": {
-        "traingDay": {
+        "trainDay": {
           "$ref": "#/definitions/training_v1TrainDay"
         }
       }
@@ -948,7 +961,7 @@
     "training_v1GetTrainDaysResponse": {
       "type": "object",
       "properties": {
-        "traingDays": {
+        "trainDays": {
           "type": "array",
           "items": {
             "type": "object",
@@ -960,7 +973,7 @@
     "training_v1GetTrainingProgramResponse": {
       "type": "object",
       "properties": {
-        "traingProgram": {
+        "trainProgram": {
           "$ref": "#/definitions/training_v1TrainingProgram"
         }
       }
@@ -968,7 +981,7 @@
     "training_v1GetTrainingProgramsResponse": {
       "type": "object",
       "properties": {
-        "traingPrograms": {
+        "trainPrograms": {
           "type": "array",
           "items": {
             "type": "object",
@@ -1112,6 +1125,9 @@
       "type": "object",
       "properties": {
         "exerciseName": {
+          "type": "string"
+        },
+        "pictures": {
           "type": "string"
         },
         "description": {

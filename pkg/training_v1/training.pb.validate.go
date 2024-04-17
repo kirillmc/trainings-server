@@ -276,6 +276,8 @@ func (m *ExerciseInfo) validate(all bool) error {
 
 	// no validation rules for DayId
 
+	// no validation rules for Pictures
+
 	// no validation rules for Description
 
 	if len(errors) > 0 {
@@ -965,6 +967,35 @@ func (m *UpdateExerciseInfo) validate(all bool) error {
 		if err := v.Validate(); err != nil {
 			return UpdateExerciseInfoValidationError{
 				field:  "ExerciseName",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
+		switch v := interface{}(m.GetPictures()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, UpdateExerciseInfoValidationError{
+					field:  "Pictures",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, UpdateExerciseInfoValidationError{
+					field:  "Pictures",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetPictures()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return UpdateExerciseInfoValidationError{
+				field:  "Pictures",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
@@ -3722,7 +3753,7 @@ func (m *GetTrainingProgramsResponse) validate(all bool) error {
 
 	var errors []error
 
-	for idx, item := range m.GetTraingPrograms() {
+	for idx, item := range m.GetTrainPrograms() {
 		_, _ = idx, item
 
 		if all {
@@ -3730,7 +3761,7 @@ func (m *GetTrainingProgramsResponse) validate(all bool) error {
 			case interface{ ValidateAll() error }:
 				if err := v.ValidateAll(); err != nil {
 					errors = append(errors, GetTrainingProgramsResponseValidationError{
-						field:  fmt.Sprintf("TraingPrograms[%v]", idx),
+						field:  fmt.Sprintf("TrainPrograms[%v]", idx),
 						reason: "embedded message failed validation",
 						cause:  err,
 					})
@@ -3738,7 +3769,7 @@ func (m *GetTrainingProgramsResponse) validate(all bool) error {
 			case interface{ Validate() error }:
 				if err := v.Validate(); err != nil {
 					errors = append(errors, GetTrainingProgramsResponseValidationError{
-						field:  fmt.Sprintf("TraingPrograms[%v]", idx),
+						field:  fmt.Sprintf("TrainPrograms[%v]", idx),
 						reason: "embedded message failed validation",
 						cause:  err,
 					})
@@ -3747,7 +3778,7 @@ func (m *GetTrainingProgramsResponse) validate(all bool) error {
 		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
 			if err := v.Validate(); err != nil {
 				return GetTrainingProgramsResponseValidationError{
-					field:  fmt.Sprintf("TraingPrograms[%v]", idx),
+					field:  fmt.Sprintf("TrainPrograms[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
@@ -3860,11 +3891,11 @@ func (m *GetTrainingProgramResponse) validate(all bool) error {
 	var errors []error
 
 	if all {
-		switch v := interface{}(m.GetTraingProgram()).(type) {
+		switch v := interface{}(m.GetTrainProgram()).(type) {
 		case interface{ ValidateAll() error }:
 			if err := v.ValidateAll(); err != nil {
 				errors = append(errors, GetTrainingProgramResponseValidationError{
-					field:  "TraingProgram",
+					field:  "TrainProgram",
 					reason: "embedded message failed validation",
 					cause:  err,
 				})
@@ -3872,16 +3903,16 @@ func (m *GetTrainingProgramResponse) validate(all bool) error {
 		case interface{ Validate() error }:
 			if err := v.Validate(); err != nil {
 				errors = append(errors, GetTrainingProgramResponseValidationError{
-					field:  "TraingProgram",
+					field:  "TrainProgram",
 					reason: "embedded message failed validation",
 					cause:  err,
 				})
 			}
 		}
-	} else if v, ok := interface{}(m.GetTraingProgram()).(interface{ Validate() error }); ok {
+	} else if v, ok := interface{}(m.GetTrainProgram()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
 			return GetTrainingProgramResponseValidationError{
-				field:  "TraingProgram",
+				field:  "TrainProgram",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
@@ -3990,7 +4021,7 @@ func (m *GetTrainDaysResponse) validate(all bool) error {
 
 	var errors []error
 
-	for idx, item := range m.GetTraingDays() {
+	for idx, item := range m.GetTrainDays() {
 		_, _ = idx, item
 
 		if all {
@@ -3998,7 +4029,7 @@ func (m *GetTrainDaysResponse) validate(all bool) error {
 			case interface{ ValidateAll() error }:
 				if err := v.ValidateAll(); err != nil {
 					errors = append(errors, GetTrainDaysResponseValidationError{
-						field:  fmt.Sprintf("TraingDays[%v]", idx),
+						field:  fmt.Sprintf("TrainDays[%v]", idx),
 						reason: "embedded message failed validation",
 						cause:  err,
 					})
@@ -4006,7 +4037,7 @@ func (m *GetTrainDaysResponse) validate(all bool) error {
 			case interface{ Validate() error }:
 				if err := v.Validate(); err != nil {
 					errors = append(errors, GetTrainDaysResponseValidationError{
-						field:  fmt.Sprintf("TraingDays[%v]", idx),
+						field:  fmt.Sprintf("TrainDays[%v]", idx),
 						reason: "embedded message failed validation",
 						cause:  err,
 					})
@@ -4015,7 +4046,7 @@ func (m *GetTrainDaysResponse) validate(all bool) error {
 		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
 			if err := v.Validate(); err != nil {
 				return GetTrainDaysResponseValidationError{
-					field:  fmt.Sprintf("TraingDays[%v]", idx),
+					field:  fmt.Sprintf("TrainDays[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
@@ -4127,11 +4158,11 @@ func (m *GetTrainDayResponse) validate(all bool) error {
 	var errors []error
 
 	if all {
-		switch v := interface{}(m.GetTraingDay()).(type) {
+		switch v := interface{}(m.GetTrainDay()).(type) {
 		case interface{ ValidateAll() error }:
 			if err := v.ValidateAll(); err != nil {
 				errors = append(errors, GetTrainDayResponseValidationError{
-					field:  "TraingDay",
+					field:  "TrainDay",
 					reason: "embedded message failed validation",
 					cause:  err,
 				})
@@ -4139,16 +4170,16 @@ func (m *GetTrainDayResponse) validate(all bool) error {
 		case interface{ Validate() error }:
 			if err := v.Validate(); err != nil {
 				errors = append(errors, GetTrainDayResponseValidationError{
-					field:  "TraingDay",
+					field:  "TrainDay",
 					reason: "embedded message failed validation",
 					cause:  err,
 				})
 			}
 		}
-	} else if v, ok := interface{}(m.GetTraingDay()).(interface{ Validate() error }); ok {
+	} else if v, ok := interface{}(m.GetTrainDay()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
 			return GetTrainDayResponseValidationError{
-				field:  "TraingDay",
+				field:  "TrainDay",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}

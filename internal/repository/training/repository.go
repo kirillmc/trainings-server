@@ -17,11 +17,13 @@ const (
 	statisticsTable     = "statistics"
 	statisticsSetsTable = "statistics_sets"
 
-	idColumm   = "id"
-	userId     = "user_id"
-	programId  = "program_id"
-	exerciseId = "exercise_id"
-	setId      = "set_id"
+	idColumm          = "id"
+	userIdColumn      = "user_id"
+	programIdColumn   = "program_id"
+	trainsDayIdColumn = "trains_day_id"
+	exerciseIdColumn  = "exercise_id"
+	setIdColumn       = "set_id"
+	statisticIdColumn = "statistic_id"
 
 	description  = "description"
 	programName  = "program_name"

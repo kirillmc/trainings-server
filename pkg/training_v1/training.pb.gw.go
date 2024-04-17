@@ -31,19 +31,25 @@ var _ = runtime.String
 var _ = utilities.NewDoubleArray
 var _ = metadata.Join
 
-var (
-	filter_TrainingV1_GetTrainingPrograms_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
-)
-
 func request_TrainingV1_GetTrainingPrograms_0(ctx context.Context, marshaler runtime.Marshaler, client TrainingV1Client, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetRequest
 	var metadata runtime.ServerMetadata
 
-	if err := req.ParseForm(); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	var (
+		val string
+		ok  bool
+		err error
+		_   = err
+	)
+
+	val, ok = pathParams["id"]
+	if !ok {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "id")
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_TrainingV1_GetTrainingPrograms_0); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+
+	protoReq.Id, err = runtime.Int64(val)
+	if err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "id", err)
 	}
 
 	msg, err := client.GetTrainingPrograms(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
@@ -55,11 +61,21 @@ func local_request_TrainingV1_GetTrainingPrograms_0(ctx context.Context, marshal
 	var protoReq GetRequest
 	var metadata runtime.ServerMetadata
 
-	if err := req.ParseForm(); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	var (
+		val string
+		ok  bool
+		err error
+		_   = err
+	)
+
+	val, ok = pathParams["id"]
+	if !ok {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "id")
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_TrainingV1_GetTrainingPrograms_0); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+
+	protoReq.Id, err = runtime.Int64(val)
+	if err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "id", err)
 	}
 
 	msg, err := server.GetTrainingPrograms(ctx, &protoReq)
@@ -119,19 +135,25 @@ func local_request_TrainingV1_GetTrainingProgram_0(ctx context.Context, marshale
 
 }
 
-var (
-	filter_TrainingV1_GetTrainDays_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
-)
-
 func request_TrainingV1_GetTrainDays_0(ctx context.Context, marshaler runtime.Marshaler, client TrainingV1Client, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetRequest
 	var metadata runtime.ServerMetadata
 
-	if err := req.ParseForm(); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	var (
+		val string
+		ok  bool
+		err error
+		_   = err
+	)
+
+	val, ok = pathParams["id"]
+	if !ok {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "id")
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_TrainingV1_GetTrainDays_0); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+
+	protoReq.Id, err = runtime.Int64(val)
+	if err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "id", err)
 	}
 
 	msg, err := client.GetTrainDays(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
@@ -143,11 +165,21 @@ func local_request_TrainingV1_GetTrainDays_0(ctx context.Context, marshaler runt
 	var protoReq GetRequest
 	var metadata runtime.ServerMetadata
 
-	if err := req.ParseForm(); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	var (
+		val string
+		ok  bool
+		err error
+		_   = err
+	)
+
+	val, ok = pathParams["id"]
+	if !ok {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "id")
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_TrainingV1_GetTrainDays_0); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+
+	protoReq.Id, err = runtime.Int64(val)
+	if err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "id", err)
 	}
 
 	msg, err := server.GetTrainDays(ctx, &protoReq)
@@ -207,19 +239,25 @@ func local_request_TrainingV1_GetTrainDay_0(ctx context.Context, marshaler runti
 
 }
 
-var (
-	filter_TrainingV1_GetExercises_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
-)
-
 func request_TrainingV1_GetExercises_0(ctx context.Context, marshaler runtime.Marshaler, client TrainingV1Client, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetRequest
 	var metadata runtime.ServerMetadata
 
-	if err := req.ParseForm(); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	var (
+		val string
+		ok  bool
+		err error
+		_   = err
+	)
+
+	val, ok = pathParams["id"]
+	if !ok {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "id")
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_TrainingV1_GetExercises_0); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+
+	protoReq.Id, err = runtime.Int64(val)
+	if err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "id", err)
 	}
 
 	msg, err := client.GetExercises(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
@@ -231,11 +269,21 @@ func local_request_TrainingV1_GetExercises_0(ctx context.Context, marshaler runt
 	var protoReq GetRequest
 	var metadata runtime.ServerMetadata
 
-	if err := req.ParseForm(); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	var (
+		val string
+		ok  bool
+		err error
+		_   = err
+	)
+
+	val, ok = pathParams["id"]
+	if !ok {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "id")
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_TrainingV1_GetExercises_0); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+
+	protoReq.Id, err = runtime.Int64(val)
+	if err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "id", err)
 	}
 
 	msg, err := server.GetExercises(ctx, &protoReq)
@@ -295,19 +343,25 @@ func local_request_TrainingV1_GetExercise_0(ctx context.Context, marshaler runti
 
 }
 
-var (
-	filter_TrainingV1_GetSets_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
-)
-
 func request_TrainingV1_GetSets_0(ctx context.Context, marshaler runtime.Marshaler, client TrainingV1Client, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetRequest
 	var metadata runtime.ServerMetadata
 
-	if err := req.ParseForm(); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	var (
+		val string
+		ok  bool
+		err error
+		_   = err
+	)
+
+	val, ok = pathParams["id"]
+	if !ok {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "id")
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_TrainingV1_GetSets_0); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+
+	protoReq.Id, err = runtime.Int64(val)
+	if err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "id", err)
 	}
 
 	msg, err := client.GetSets(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
@@ -319,11 +373,21 @@ func local_request_TrainingV1_GetSets_0(ctx context.Context, marshaler runtime.M
 	var protoReq GetRequest
 	var metadata runtime.ServerMetadata
 
-	if err := req.ParseForm(); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	var (
+		val string
+		ok  bool
+		err error
+		_   = err
+	)
+
+	val, ok = pathParams["id"]
+	if !ok {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "id")
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_TrainingV1_GetSets_0); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+
+	protoReq.Id, err = runtime.Int64(val)
+	if err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "id", err)
 	}
 
 	msg, err := server.GetSets(ctx, &protoReq)
@@ -383,19 +447,25 @@ func local_request_TrainingV1_GetSet_0(ctx context.Context, marshaler runtime.Ma
 
 }
 
-var (
-	filter_TrainingV1_GetStatistic_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
-)
-
 func request_TrainingV1_GetStatistic_0(ctx context.Context, marshaler runtime.Marshaler, client TrainingV1Client, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetRequest
 	var metadata runtime.ServerMetadata
 
-	if err := req.ParseForm(); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	var (
+		val string
+		ok  bool
+		err error
+		_   = err
+	)
+
+	val, ok = pathParams["id"]
+	if !ok {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "id")
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_TrainingV1_GetStatistic_0); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+
+	protoReq.Id, err = runtime.Int64(val)
+	if err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "id", err)
 	}
 
 	msg, err := client.GetStatistic(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
@@ -407,11 +477,21 @@ func local_request_TrainingV1_GetStatistic_0(ctx context.Context, marshaler runt
 	var protoReq GetRequest
 	var metadata runtime.ServerMetadata
 
-	if err := req.ParseForm(); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	var (
+		val string
+		ok  bool
+		err error
+		_   = err
+	)
+
+	val, ok = pathParams["id"]
+	if !ok {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "id")
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_TrainingV1_GetStatistic_0); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+
+	protoReq.Id, err = runtime.Int64(val)
+	if err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "id", err)
 	}
 
 	msg, err := server.GetStatistic(ctx, &protoReq)
@@ -953,7 +1033,7 @@ func RegisterTrainingV1HandlerServer(ctx context.Context, mux *runtime.ServeMux,
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/training_v1.TrainingV1/GetTrainingPrograms", runtime.WithHTTPPathPattern("/api/programs"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/training_v1.TrainingV1/GetTrainingPrograms", runtime.WithHTTPPathPattern("/api/programs/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -978,7 +1058,7 @@ func RegisterTrainingV1HandlerServer(ctx context.Context, mux *runtime.ServeMux,
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/training_v1.TrainingV1/GetTrainingProgram", runtime.WithHTTPPathPattern("/api/programs/{id}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/training_v1.TrainingV1/GetTrainingProgram", runtime.WithHTTPPathPattern("/api/program/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1003,7 +1083,7 @@ func RegisterTrainingV1HandlerServer(ctx context.Context, mux *runtime.ServeMux,
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/training_v1.TrainingV1/GetTrainDays", runtime.WithHTTPPathPattern("/api/programs/train_days"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/training_v1.TrainingV1/GetTrainDays", runtime.WithHTTPPathPattern("/api/programs/train_days/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1028,7 +1108,7 @@ func RegisterTrainingV1HandlerServer(ctx context.Context, mux *runtime.ServeMux,
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/training_v1.TrainingV1/GetTrainDay", runtime.WithHTTPPathPattern("/api/programs/train_days/{id}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/training_v1.TrainingV1/GetTrainDay", runtime.WithHTTPPathPattern("/api/programs/train_day/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1053,7 +1133,7 @@ func RegisterTrainingV1HandlerServer(ctx context.Context, mux *runtime.ServeMux,
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/training_v1.TrainingV1/GetExercises", runtime.WithHTTPPathPattern("/api/programs/train_days/exercises"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/training_v1.TrainingV1/GetExercises", runtime.WithHTTPPathPattern("/api/programs/train_days/exercises/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1078,7 +1158,7 @@ func RegisterTrainingV1HandlerServer(ctx context.Context, mux *runtime.ServeMux,
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/training_v1.TrainingV1/GetExercise", runtime.WithHTTPPathPattern("/api/programs/train_days/exercises/{id}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/training_v1.TrainingV1/GetExercise", runtime.WithHTTPPathPattern("/api/programs/train_days/exercise/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1103,7 +1183,7 @@ func RegisterTrainingV1HandlerServer(ctx context.Context, mux *runtime.ServeMux,
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/training_v1.TrainingV1/GetSets", runtime.WithHTTPPathPattern("/api/programs/train_days/exercises/sets"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/training_v1.TrainingV1/GetSets", runtime.WithHTTPPathPattern("/api/programs/train_days/exercises/sets/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1128,7 +1208,7 @@ func RegisterTrainingV1HandlerServer(ctx context.Context, mux *runtime.ServeMux,
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/training_v1.TrainingV1/GetSet", runtime.WithHTTPPathPattern("/api/programs/train_days/exercises/sets/{id}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/training_v1.TrainingV1/GetSet", runtime.WithHTTPPathPattern("/api/programs/train_days/exercises/set/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1153,7 +1233,7 @@ func RegisterTrainingV1HandlerServer(ctx context.Context, mux *runtime.ServeMux,
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/training_v1.TrainingV1/GetStatistic", runtime.WithHTTPPathPattern("/api/programs/train_days/exercises/sets/statistic"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/training_v1.TrainingV1/GetStatistic", runtime.WithHTTPPathPattern("/api/programs/train_days/exercises/sets/statistic/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1592,7 +1672,7 @@ func RegisterTrainingV1HandlerClient(ctx context.Context, mux *runtime.ServeMux,
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/training_v1.TrainingV1/GetTrainingPrograms", runtime.WithHTTPPathPattern("/api/programs"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/training_v1.TrainingV1/GetTrainingPrograms", runtime.WithHTTPPathPattern("/api/programs/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1614,7 +1694,7 @@ func RegisterTrainingV1HandlerClient(ctx context.Context, mux *runtime.ServeMux,
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/training_v1.TrainingV1/GetTrainingProgram", runtime.WithHTTPPathPattern("/api/programs/{id}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/training_v1.TrainingV1/GetTrainingProgram", runtime.WithHTTPPathPattern("/api/program/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1636,7 +1716,7 @@ func RegisterTrainingV1HandlerClient(ctx context.Context, mux *runtime.ServeMux,
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/training_v1.TrainingV1/GetTrainDays", runtime.WithHTTPPathPattern("/api/programs/train_days"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/training_v1.TrainingV1/GetTrainDays", runtime.WithHTTPPathPattern("/api/programs/train_days/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1658,7 +1738,7 @@ func RegisterTrainingV1HandlerClient(ctx context.Context, mux *runtime.ServeMux,
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/training_v1.TrainingV1/GetTrainDay", runtime.WithHTTPPathPattern("/api/programs/train_days/{id}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/training_v1.TrainingV1/GetTrainDay", runtime.WithHTTPPathPattern("/api/programs/train_day/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1680,7 +1760,7 @@ func RegisterTrainingV1HandlerClient(ctx context.Context, mux *runtime.ServeMux,
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/training_v1.TrainingV1/GetExercises", runtime.WithHTTPPathPattern("/api/programs/train_days/exercises"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/training_v1.TrainingV1/GetExercises", runtime.WithHTTPPathPattern("/api/programs/train_days/exercises/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1702,7 +1782,7 @@ func RegisterTrainingV1HandlerClient(ctx context.Context, mux *runtime.ServeMux,
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/training_v1.TrainingV1/GetExercise", runtime.WithHTTPPathPattern("/api/programs/train_days/exercises/{id}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/training_v1.TrainingV1/GetExercise", runtime.WithHTTPPathPattern("/api/programs/train_days/exercise/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1724,7 +1804,7 @@ func RegisterTrainingV1HandlerClient(ctx context.Context, mux *runtime.ServeMux,
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/training_v1.TrainingV1/GetSets", runtime.WithHTTPPathPattern("/api/programs/train_days/exercises/sets"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/training_v1.TrainingV1/GetSets", runtime.WithHTTPPathPattern("/api/programs/train_days/exercises/sets/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1746,7 +1826,7 @@ func RegisterTrainingV1HandlerClient(ctx context.Context, mux *runtime.ServeMux,
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/training_v1.TrainingV1/GetSet", runtime.WithHTTPPathPattern("/api/programs/train_days/exercises/sets/{id}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/training_v1.TrainingV1/GetSet", runtime.WithHTTPPathPattern("/api/programs/train_days/exercises/set/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1768,7 +1848,7 @@ func RegisterTrainingV1HandlerClient(ctx context.Context, mux *runtime.ServeMux,
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/training_v1.TrainingV1/GetStatistic", runtime.WithHTTPPathPattern("/api/programs/train_days/exercises/sets/statistic"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/training_v1.TrainingV1/GetStatistic", runtime.WithHTTPPathPattern("/api/programs/train_days/exercises/sets/statistic/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -2118,23 +2198,23 @@ func RegisterTrainingV1HandlerClient(ctx context.Context, mux *runtime.ServeMux,
 }
 
 var (
-	pattern_TrainingV1_GetTrainingPrograms_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "programs"}, ""))
+	pattern_TrainingV1_GetTrainingPrograms_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "programs", "id"}, ""))
 
-	pattern_TrainingV1_GetTrainingProgram_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "programs", "id"}, ""))
+	pattern_TrainingV1_GetTrainingProgram_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "program", "id"}, ""))
 
-	pattern_TrainingV1_GetTrainDays_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"api", "programs", "train_days"}, ""))
+	pattern_TrainingV1_GetTrainDays_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"api", "programs", "train_days", "id"}, ""))
 
-	pattern_TrainingV1_GetTrainDay_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"api", "programs", "train_days", "id"}, ""))
+	pattern_TrainingV1_GetTrainDay_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"api", "programs", "train_day", "id"}, ""))
 
-	pattern_TrainingV1_GetExercises_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "programs", "train_days", "exercises"}, ""))
+	pattern_TrainingV1_GetExercises_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 1, 0, 4, 1, 5, 4}, []string{"api", "programs", "train_days", "exercises", "id"}, ""))
 
-	pattern_TrainingV1_GetExercise_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 1, 0, 4, 1, 5, 4}, []string{"api", "programs", "train_days", "exercises", "id"}, ""))
+	pattern_TrainingV1_GetExercise_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 1, 0, 4, 1, 5, 4}, []string{"api", "programs", "train_days", "exercise", "id"}, ""))
 
-	pattern_TrainingV1_GetSets_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"api", "programs", "train_days", "exercises", "sets"}, ""))
+	pattern_TrainingV1_GetSets_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 1, 0, 4, 1, 5, 5}, []string{"api", "programs", "train_days", "exercises", "sets", "id"}, ""))
 
-	pattern_TrainingV1_GetSet_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 1, 0, 4, 1, 5, 5}, []string{"api", "programs", "train_days", "exercises", "sets", "id"}, ""))
+	pattern_TrainingV1_GetSet_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 1, 0, 4, 1, 5, 5}, []string{"api", "programs", "train_days", "exercises", "set", "id"}, ""))
 
-	pattern_TrainingV1_GetStatistic_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 2, 5}, []string{"api", "programs", "train_days", "exercises", "sets", "statistic"}, ""))
+	pattern_TrainingV1_GetStatistic_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 2, 5, 1, 0, 4, 1, 5, 6}, []string{"api", "programs", "train_days", "exercises", "sets", "statistic", "id"}, ""))
 
 	pattern_TrainingV1_CreateTrainingProgram_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "programs"}, ""))
 

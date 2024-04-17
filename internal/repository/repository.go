@@ -13,11 +13,11 @@ type TrainingRepository interface {
 	CreateSet(ctx context.Context, req *model.SetToCreate) (int64, error)
 	CreateStatistic(ctx context.Context, req *model.StatisticToCreate) (int64, error)
 
-	CreateUsersPrograms(ctx context.Context, user_id, program_id int64) error
-	CreateDaysPrograms(ctx context.Context, program_id, day_id int64) error
-	CreateExercisesDays(ctx context.Context, day_id, exercise_id int64) error
-	CreateSetsExercises(ctx context.Context, exercise_id, set_id int64) error
-	CreateStatisticsSets(ctx context.Context, set_id, statistic_id int64) error
+	CreateUsersPrograms(ctx context.Context, userId, programId int64) error
+	CreateDaysPrograms(ctx context.Context, programId, dayId int64) error
+	CreateExercisesDays(ctx context.Context, dayId, exerciseId int64) error
+	CreateSetsExercises(ctx context.Context, exerciseId, setId int64) error
+	CreateStatisticsSets(ctx context.Context, setId, statisticId int64) error
 
 	DeleteProgram(ctx context.Context, id int64) error
 	DeleteTrainDay(ctx context.Context, id int64) error
@@ -35,6 +35,11 @@ type TrainingRepository interface {
 	GetTrainDaysIdsByProgramId(ctx context.Context, programId int64) ([]int64, error)
 	GetExercisesIdsByTrainDayId(ctx context.Context, trainDayId int64) ([]int64, error)
 	GetSetsIdsByExerciseId(ctx context.Context, exerciseId int64) ([]int64, error)
+
+	GetUserIdByProgramId(ctx context.Context, programId int64) (int64, error)
+	GetProgramIdByTrainDayId(ctx context.Context, trainDayId int64) (int64, error)
+	GetTrainDayIdByExerciseId(ctx context.Context, exerciseId int64) (int64, error)
+	GetExerciseIdBySetId(ctx context.Context, setId int64) (int64, error)
 
 	UpdateProgram(ctx context.Context, req *model.TrainProgramToUpdate) error
 	UpdateTrainDay(ctx context.Context, req *model.TrainDayToUpdate) error

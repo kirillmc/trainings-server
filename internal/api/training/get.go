@@ -7,14 +7,14 @@ import (
 	desc "github.com/kirillmc/trainings-server/pkg/training_v1"
 )
 
-func (i *Implementation) GetProgram(ctx context.Context, req *desc.GetRequest) (*desc.GetTrainingProgramResponse, error) {
+func (i *Implementation) GetTrainingProgram(ctx context.Context, req *desc.GetRequest) (*desc.GetTrainingProgramResponse, error) {
 	program, err := i.trainingService.GetProgram(ctx, req.GetId())
 	if err != nil {
 		return nil, err
 	}
 
 	return &desc.GetTrainingProgramResponse{
-		TraingProgram: converter.ToGetTrainingProgramResponseFromService(program),
+		TrainProgram: converter.ToGetTrainingProgramResponseFromService(program),
 	}, nil
 
 }
@@ -26,7 +26,7 @@ func (i *Implementation) GetTrainDay(ctx context.Context, req *desc.GetRequest) 
 	}
 
 	return &desc.GetTrainDayResponse{
-		TraingDay: converter.ToGetTrainDayResponseFromService(trainDay),
+		TrainDay: converter.ToGetTrainDayResponseFromService(trainDay),
 	}, nil
 
 }

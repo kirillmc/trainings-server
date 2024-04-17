@@ -31,7 +31,7 @@ func ToGetTrainingProgramsResponseFromService(trainingPrograms []*model.TrainPro
 	for _, elem := range trainingPrograms {
 		trainingProgramsList = append(trainingProgramsList, ToGetTrainingProgramResponseFromService(elem))
 	}
-	return &desc.GetTrainingProgramsResponse{TraingPrograms: trainingProgramsList}
+	return &desc.GetTrainingProgramsResponse{TrainPrograms: trainingProgramsList}
 }
 
 func ToTrainingProgramUpdateFromDesc(trainingProgram *desc.UpdateTrainingProgramRequest) *model.TrainProgramToUpdate {

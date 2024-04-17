@@ -7,7 +7,7 @@ import (
 	desc "github.com/kirillmc/trainings-server/pkg/training_v1"
 )
 
-func (i *Implementation) CreateProgram(ctx context.Context, req *desc.CreateTrainingProgramRequest) (*desc.CreateResponse, error) {
+func (i *Implementation) CreateTrainingProgram(ctx context.Context, req *desc.CreateTrainingProgramRequest) (*desc.CreateResponse, error) {
 	id, err := i.trainingService.CreateProgram(ctx, converter.ToTrainingProgramFromDesc(req))
 	if err != nil {
 		return nil, err

@@ -18,6 +18,7 @@ import (
 	"github.com/kirillmc/platform_common/pkg/interceptor"
 	"github.com/kirillmc/trainings-server/internal/config"
 	desc "github.com/kirillmc/trainings-server/pkg/training_v1"
+	_ "github.com/kirillmc/trainings-server/statik"
 	"github.com/rakyll/statik/fs"
 	"github.com/rs/cors"
 )
@@ -63,16 +64,28 @@ func (a *App) Run() error {
 	go func() {
 		defer wg.Done()
 
+		err := a.runGRPCServer()
+		if err != nil {
+			log.Fatalf("failed to run grpc server %v", err)
+		}
 	}()
 
 	go func() {
 		defer wg.Done()
 
+		err := a.runHTTPServer()
+		if err != nil {
+			log.Fatalf("failed to run http server %v", err)
+		}
 	}()
 
 	go func() {
 		defer wg.Done()
 
+		err := a.runSwaggerServer()
+		if err != nil {
+			log.Fatalf("failed to run swagger server %v", err)
+		}
 	}()
 
 	wg.Wait()
@@ -159,7 +172,8 @@ func (a *App) initHTTPServer(ctx context.Context) error {
 func (a *App) initSwaggerServer(_ context.Context) error {
 	statikFs, err := fs.New()
 	if err != nil {
-		return nil
+		log.Printf("ERRR!!!! : %v\n", err)
+		return err
 	}
 
 	mux := http.NewServeMux()
@@ -200,7 +214,7 @@ func (a *App) runHTTPServer() error {
 	return nil
 }
 
-func (a *App) runSwagggerServer() error {
+func (a *App) runSwaggerServer() error {
 	log.Printf("Swagger server is running on %s", a.serviceProvider.SwaggerConfig().Address())
 
 	err := a.swaggerServer.ListenAndServe()
@@ -224,6 +238,10 @@ func serveSwaggerFile(path string) http.HandlerFunc {
 		log.Printf("Opening swagger at: %s", path)
 
 		file, err := statikFs.Open(path)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
 
 		defer file.Close()
 
