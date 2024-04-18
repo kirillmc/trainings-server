@@ -130,9 +130,11 @@ func (a *App) initServiceProvider(_ context.Context) error {
 }
 
 func (a *App) initGRPCServer(ctx context.Context) error {
+	c := a.serviceProvider.InterceptorClient()
+
 	a.grpcServer = grpc.NewServer(
 		grpc.Creds(insecure.NewCredentials()),
-		grpc.UnaryInterceptor(interceptor.ValidateInerceptor),
+		grpc.ChainUnaryInterceptor(c.PolicyInterceptor, interceptor.ValidateInerceptor),
 	)
 
 	reflection.Register(a.grpcServer)

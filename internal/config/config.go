@@ -20,6 +20,10 @@ type PGConfig interface {
 	DSN() string
 }
 
+type AccessConfig interface {
+	Address() string
+}
+
 func Load(path string) error {
 	err := godotenv.Load(path)
 	if err != nil {

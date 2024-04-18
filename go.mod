@@ -8,6 +8,7 @@ require (
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.19.1
 	github.com/joho/godotenv v1.5.1
 	github.com/kirillmc/platform_common v0.0.0-20240409070039-be2988157a23
+	github.com/kirillmc/trainings-auth v0.0.0-20240418114716-c127cbf63b90
 	github.com/rakyll/statik v0.1.7
 	github.com/rs/cors v1.10.1
 	google.golang.org/genproto/googleapis/api v0.0.0-20240227224415-6ceb2ff114de
