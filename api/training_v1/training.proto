@@ -10,7 +10,7 @@ import "google/protobuf/timestamp.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
 
-option go_package = "ithub.com/kirillmc/trainings-server/pkg/training_v1;training_v1";
+option go_package = "github.com/kirillmc/trainings-server/pkg/training_v1;training_v1";
 
 option(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
   info:{
@@ -30,55 +30,61 @@ option(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
 };
 
 service TrainingV1{
-  rpc GetTrainingPrograms(GetRequest) returns (GetTrainingProgramsResponse){// получить список тренировочных программ
+  rpc GetPublicTrainingPrograms(google.protobuf.Empty) returns (GetPublicTrainingProgramsResponse){// Получить список тренировочных программ в общем доступе
+    option(google.api.http) = {
+      get: "/api/public-programs"
+    };
+  }
+
+  rpc GetTrainingPrograms(GetRequest) returns (GetTrainingProgramsResponse){// Получить список тренировочных программ по id пользователя
     option(google.api.http) = {
       get: "/api/programs/{id}"
     };
   }
 
-  rpc GetTrainingProgram(GetRequest) returns (GetTrainingProgramResponse){// получить одну тренировочную программу
+  rpc GetTrainingProgram(GetRequest) returns (GetTrainingProgramResponse){// Получить одну тренировочную программу
     option(google.api.http) = {
       get: "/api/program/{id}"
     };
   }
 
-  rpc GetTrainDays(GetRequest) returns (GetTrainDaysResponse){// получить список тренировочных дней
+  rpc GetTrainDays(GetRequest) returns (GetTrainDaysResponse){// Получить список тренировочных дней
     option(google.api.http) = {
       get: "/api/programs/train_days/{id}"
     };
   }
 
-  rpc GetTrainDay(GetRequest) returns (GetTrainDayResponse){// получить один тренировочный день
+  rpc GetTrainDay(GetRequest) returns (GetTrainDayResponse){// Получить один тренировочный день
     option(google.api.http) = {
       get: "/api/programs/train_day/{id}"
     };
   }
 
-  rpc GetExercises(GetRequest) returns (GetExercisesResponse){// получить список упражнений
+  rpc GetExercises(GetRequest) returns (GetExercisesResponse){// Получить список упражнений
     option(google.api.http) = {
       get: "/api/programs/train_days/exercises/{id}"
     };
   }
 
-  rpc GetExercise(GetRequest) returns (GetExerciseResponse){// получить одно упражнение
+  rpc GetExercise(GetRequest) returns (GetExerciseResponse){// Получить одно упражнение
     option(google.api.http) = {
       get: "/api/programs/train_days/exercise/{id}"
     };
   }
 
-  rpc GetSets(GetRequest) returns (GetSetsResponse){// получить список подходов
+  rpc GetSets(GetRequest) returns (GetSetsResponse){// Получить список подходов
     option(google.api.http) = {
       get: "/api/programs/train_days/exercises/sets/{id}"
     };
   }
 
-  rpc GetSet(GetRequest) returns (GetSetResponse){// получить один подход
+  rpc GetSet(GetRequest) returns (GetSetResponse){// Получить один подход
     option(google.api.http) = {
       get: "/api/programs/train_days/exercises/set/{id}"
     };
   }
 
-  rpc GetStatistic(GetRequest) returns (GetStatisticResponse){// получить статистику по подходу
+  rpc GetStatistic(GetRequest) returns (GetStatisticResponse){// Получить статистику по подходу
     option(google.api.http) = {
       get: "/api/programs/train_days/exercises/sets/statistic/{id}"
     };
@@ -86,31 +92,35 @@ service TrainingV1{
 
   //----------------------------------------------------------------------------------------------------------------------
 
-  rpc CreateTrainingProgram(CreateTrainingProgramRequest) returns (CreateResponse){// создать одну тренировочную программу
+  rpc CreateTrainingProgram(CreateTrainingProgramRequest) returns (CreateResponse){// Создать одну тренировочную программу
     option(google.api.http) = {
       post: "/api/programs"
       body:"*"
     };
   }
-  rpc CreateTrainDay(CreateTrainDayRequest) returns (CreateResponse){// создать один тренировочный день
+
+  rpc CreateTrainDay(CreateTrainDayRequest) returns (CreateResponse){// Создать один тренировочный день
     option(google.api.http) = {
       post: "/api/programs/train_days"
       body:"*"
     };
   }
-  rpc CreateExercise(CreateExerciseRequest) returns (CreateResponse){// создать одно упражнение
+
+  rpc CreateExercise(CreateExerciseRequest) returns (CreateResponse){// Создать одно упражнение
     option(google.api.http) = {
       post: "/api/programs/train_days/exercises"
       body:"*"
     };
   }
-  rpc CreateSet(CreateSetRequest) returns (CreateResponse){// создать один подход
+
+  rpc CreateSet(CreateSetRequest) returns (CreateResponse){// Создать один подход
     option(google.api.http) = {
       post: "/api/programs/train_days/exercises/sets"
       body:"*"
     };
   }
-  rpc CreateStatistic(CreateStatisticRequest) returns (CreateResponse){// создать статистику по подходу
+
+  rpc CreateStatistic(CreateStatisticRequest) returns (CreateResponse){// Создать статистику по подходу
     option(google.api.http) = {
       post: "/api/programs/train_days/exercises/sets/statistic"
       body:"*"
@@ -119,31 +129,31 @@ service TrainingV1{
 
   //----------------------------------------------------------------------------------------------------------------------
 
-  rpc UpdateTrainingProgram(UpdateTrainingProgramRequest) returns (google.protobuf.Empty){// обновить одну тренировочную программу
+  rpc UpdateTrainingProgram(UpdateTrainingProgramRequest) returns (google.protobuf.Empty){// Обновить одну тренировочную программу
     option(google.api.http) = {
       patch: "/api/programs"
       body:"*"
     };
   }
-  rpc UpdateTrainDay(UpdateTrainDayRequest) returns (google.protobuf.Empty){// обновить один тренировочный день
+  rpc UpdateTrainDay(UpdateTrainDayRequest) returns (google.protobuf.Empty){// Обновить один тренировочный день
     option(google.api.http) = {
       patch: "/api/programs/train_days"
       body:"*"
     };
   }
-  rpc UpdateExercise(UpdateExerciseRequest) returns (google.protobuf.Empty){// обновить одно упражнение
+  rpc UpdateExercise(UpdateExerciseRequest) returns (google.protobuf.Empty){// Обновить одно упражнение
     option(google.api.http) = {
       patch: "/api/programs/train_days/exercises"
       body:"*"
     };
   }
-  rpc UpdateSet(UpdateSetRequest) returns (google.protobuf.Empty){// обновить один подход
+  rpc UpdateSet(UpdateSetRequest) returns (google.protobuf.Empty){// Обновить один подход
     option(google.api.http) = {
       patch: "/api/programs/train_days/exercises/sets"
       body:"*"
     };
   }
-  rpc UpdateStatistic(UpdateStatisticRequest) returns (google.protobuf.Empty){// обновить статистику по подходу
+  rpc UpdateStatistic(UpdateStatisticRequest) returns (google.protobuf.Empty){// Обновить статистику по подходу
     option(google.api.http) = {
       patch: "/api/programs/train_days/exercises/sets/statistic"
       body:"*"
@@ -152,39 +162,79 @@ service TrainingV1{
 
   //----------------------------------------------------------------------------------------------------------------------
 
-  rpc DeleteTrainingProgram(DeleteRequest) returns (google.protobuf.Empty){// удалить одну тренировочную программу
+  rpc DeleteTrainingProgram(DeleteRequest) returns (google.protobuf.Empty){// Удалить одну тренировочную программу
     option(google.api.http) = {
-      delete: "/api/programs"
+      delete: "/api/programs/{id}"
     };
   }
-  rpc DeleteTrainDay(DeleteRequest) returns (google.protobuf.Empty){// удалить один тренировочный день
+  rpc DeleteTrainDay(DeleteRequest) returns (google.protobuf.Empty){// Удалить один тренировочный день
     option(google.api.http) = {
-      delete: "/api/programs/train_days"
+      delete: "/api/programs/train_days/{id}"
     };
   }
-  rpc DeleteExercise(DeleteRequest) returns (google.protobuf.Empty){// удалить одно упражнение
+  rpc DeleteExercise(DeleteRequest) returns (google.protobuf.Empty){// Удалить одно упражнение
     option(google.api.http) = {
-      delete: "/api/programs/train_days/exercises"
+      delete: "/api/programs/train_days/exercises/{id}"
     };
   }
-  rpc DeleteSet(DeleteRequest) returns (google.protobuf.Empty){// удалить один подход
+  rpc DeleteSet(DeleteRequest) returns (google.protobuf.Empty){// Удалить один подход
     option(google.api.http) = {
-      delete: "/api/programs/train_days/exercises/sets"
+      delete: "/api/programs/train_days/exercises/sets/{id}"
     };
   }
-  rpc DeleteStatistic(DeleteRequest) returns (google.protobuf.Empty){// удалить статистику по подходу
+
+  rpc DeleteStatistic(DeleteRequest) returns (google.protobuf.Empty){// Удалить статистику по подходу
     option(google.api.http) = {
-      delete: "/api/programs/train_days/exercises/sets/statistic"
+      delete: "/api/programs/train_days/exercises/sets/statistic/{id}"
     };
   }
+
+  rpc AddProgramFromPublic(AddProgramFromPublicRequest) returns (google.protobuf.Empty){// Добавить программу из общего доступа
+    option(google.api.http) = {
+      post: "/api/programs/add-program-from-public/{program_id}"
+      body:"*"
+    };
+  }
+
+  rpc SetTechnic(SetTechnicRequest) returns (google.protobuf.Empty){// Отправить данные о технике выполнения упражнения
+    option(google.api.http) = {
+      post: "/api/programs/technic"
+      body:"*"
+    };
+  }
+
+  rpc GetTechnic(GetTechnicRequest) returns (GetTechnicResponse){// Получить данные о технике выполнения упражнения
+    option(google.api.http) = {
+      get: "/api/programs/technic/{exercise_id}"
+    };
+  }
+
 }
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+enum Status{
+  UNKNOWN = 0;
+  LOCAl = 1;
+  MODERING = 2;
+  PUBLIC = 3;
+}
+
 //----------------------------------------------------------------------------------------------------------------------
 
 message TrainingProgramInfo{
   string program_name = 1;
   int64 user_id = 2;
   string description = 3;
-  bool is_public = 4;
+  Status status = 4;
+}
+
+message PublicTrainingProgramInfo{
+  string program_name = 1;
+  int64 author_id = 2;
+  string description = 3;
 }
 
 message TrainDayInfo{
@@ -221,7 +271,7 @@ message StatisticInfo{
 message UpdateTrainingProgramInfo{
   google.protobuf.StringValue program_name = 1;
   google.protobuf.StringValue description = 2;
-  google.protobuf.BoolValue is_public = 3;
+  Status Status = 3;
 }
 
 message UpdateTrainDayInfo{
@@ -251,6 +301,11 @@ message UpdateStatisticInfo{
 message TrainingProgram{
   int64 id = 1;
   TrainingProgramInfo info = 2;
+}
+
+message PublicTrainingProgram{
+  int64 id = 1;
+  PublicTrainingProgramInfo info = 2;
 }
 
 message TrainDay{
@@ -344,6 +399,10 @@ message GetTrainingProgramsResponse{
   repeated TrainingProgram train_programs = 1;
 }
 
+message GetPublicTrainingProgramsResponse{
+  repeated PublicTrainingProgram train_programs = 1;
+}
+
 message GetTrainingProgramResponse{
   TrainingProgram train_program = 1;
 }
@@ -374,4 +433,39 @@ message GetSetResponse{
 
 message GetStatisticResponse{
   Statistic statistic = 1;
+}
+
+message AddProgramFromPublicRequest{
+  int64 program_id = 1;
+  int64 user_id = 2;
+}
+
+message Dots{
+  int64 dot_number = 1;
+  double x_coordinate = 2;
+  double y_coordinate = 3;
+}
+
+message Position{
+  int64 position_number = 1;
+  repeated Dots dots = 2;
+}
+
+message Technic{
+  int64 exercise_id = 1;
+  repeated Position positions = 2;
+}
+
+message SetTechnicRequest{
+ repeated Technic technics = 1;
+}
+
+message GetTechnicRequest{
+  int64 exercise_id = 1;
+}
+
+message GetTechnicResponse{
+  int64 technic_id = 1;
+  int64 exercise_id = 2;
+  repeated  Position positions = 3;
 }

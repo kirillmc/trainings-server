@@ -6,6 +6,21 @@ import (
 	"github.com/kirillmc/trainings-server/internal/model"
 )
 
+type TrainerService interface {
+	GetClientsPrograms(ctx context.Context, trainerId int64) ([]*model.ClientsTrainingProgram, error)
+	GetProgramsWithTrainers(ctx context.Context, clientId int64) ([]*model.TrainersTrainingProgram, error)
+	GetClientsToAllow(ctx context.Context, trainerId int64) ([]int64, error)
+	GetTrainersToAllow(ctx context.Context, clientId int64) ([]int64, error)
+	SetProgramToClient(ctx context.Context, trainerClient *model.TrainerClient) error
+	BlockTrainer(ctx context.Context, block *model.TrainerClient) error
+	BlockClient(ctx context.Context, block *model.TrainerClient) error
+}
+type ModerService interface {
+	GetProgramsToModeration(ctx context.Context) ([]*model.TrainProgram, error)
+	EnableProgramsPublic(ctx context.Context, programId int64) error
+	DisableProgramsPublic(ctx context.Context, programId int64) error
+}
+
 type TrainingService interface {
 	CreateProgram(ctx context.Context, req *model.TrainProgramToCreate) (int64, error)
 	CreateTrainDay(ctx context.Context, req *model.TrainDayToCreate) (int64, error)
@@ -26,6 +41,7 @@ type TrainingService interface {
 	GetStatistic(ctx context.Context, id int64) (*model.Statistic, error)
 
 	GetPrograms(ctx context.Context, userId int64) ([]*model.TrainProgram, error)
+	GetPublicPrograms(ctx context.Context) ([]*model.TrainProgram, error)
 	GetTrainDays(ctx context.Context, programId int64) ([]*model.TrainDay, error)
 	GetExercises(ctx context.Context, trainDayId int64) ([]*model.Exercise, error)
 	GetSets(ctx context.Context, exerciseId int64) ([]*model.Set, error)
@@ -35,4 +51,7 @@ type TrainingService interface {
 	UpdateExercise(ctx context.Context, req *model.ExerciseToUpdate) error
 	UpdateSet(ctx context.Context, req *model.SetToUpdate) error
 	UpdateStatistic(ctx context.Context, req *model.StatisticToUpdate) error
+
+	SetTechnic(ctx context.Context, technics []*model.Technic) error
+	GetTechnic(ctx context.Context, exerciseId int64) (*model.TechnicToGet, error)
 }

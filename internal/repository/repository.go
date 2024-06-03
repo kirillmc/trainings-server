@@ -6,6 +6,20 @@ import (
 	"github.com/kirillmc/trainings-server/internal/model"
 )
 
+type ModerRepository interface {
+	GetProgramsToModeration(ctx context.Context) ([]*model.TrainProgram, error)
+	EnableProgramsPublic(ctx context.Context, programId int64) error
+	DisableProgramsPublic(ctx context.Context, programId int64) error
+
+	GetTrainerIdByProgramId(ctx context.Context, programId int64) (int64, error)
+	GetProgramsStatus(ctx context.Context, programId int64) (model.Status, error)
+}
+
+type TrainerRepository interface {
+	BlockTrainer(ctx context.Context, req *model.TrainerClient) error
+	BlockClient(ctx context.Context, req *model.TrainerClient) error
+}
+
 type TrainingRepository interface {
 	CreateProgram(ctx context.Context, req *model.TrainProgramToCreate) (int64, error)
 	CreateTrainDay(ctx context.Context, req *model.TrainDayToCreate) (int64, error)
@@ -13,7 +27,9 @@ type TrainingRepository interface {
 	CreateSet(ctx context.Context, req *model.SetToCreate) (int64, error)
 	CreateStatistic(ctx context.Context, req *model.StatisticToCreate) (int64, error)
 
+	CreateUsersTrainersPrograms(ctx context.Context, userId, trainerId, programId int64) error
 	CreateUsersPrograms(ctx context.Context, userId, programId int64) error
+	CreateTrainersPrograms(ctx context.Context, trainerId, programId int64) error
 	CreateDaysPrograms(ctx context.Context, programId, dayId int64) error
 	CreateExercisesDays(ctx context.Context, dayId, exerciseId int64) error
 	CreateSetsExercises(ctx context.Context, exerciseId, setId int64) error
@@ -25,6 +41,7 @@ type TrainingRepository interface {
 	DeleteSet(ctx context.Context, id int64) error
 	DeleteStatistic(ctx context.Context, id int64) error
 
+	GetPublicPrograms(ctx context.Context) ([]*model.TrainProgram, error)
 	GetProgram(ctx context.Context, id int64) (*model.TrainProgram, error)
 	GetTrainDay(ctx context.Context, id int64) (*model.TrainDay, error)
 	GetExercise(ctx context.Context, id int64) (*model.Exercise, error)
@@ -37,6 +54,7 @@ type TrainingRepository interface {
 	GetSetsIdsByExerciseId(ctx context.Context, exerciseId int64) ([]int64, error)
 
 	GetUserIdByProgramId(ctx context.Context, programId int64) (int64, error)
+	GetTrainerIdByProgramId(ctx context.Context, programId int64) (int64, error)
 	GetProgramIdByTrainDayId(ctx context.Context, trainDayId int64) (int64, error)
 	GetTrainDayIdByExerciseId(ctx context.Context, exerciseId int64) (int64, error)
 	GetExerciseIdBySetId(ctx context.Context, setId int64) (int64, error)
@@ -46,4 +64,14 @@ type TrainingRepository interface {
 	UpdateExercise(ctx context.Context, req *model.ExerciseToUpdate) error
 	UpdateSet(ctx context.Context, req *model.SetToUpdate) error
 	UpdateStatistic(ctx context.Context, req *model.StatisticToUpdate) error
+
+	GetDot(ctx context.Context, dotId int64) (*model.DotsToGet, error)
+	GetDotsIds(ctx context.Context, positionId int64) ([]int64, error)
+	GetNumber(ctx context.Context, positionId int64) (int64, error)
+	GetPositionsIds(ctx context.Context, technicId int64) ([]int64, error)
+	GetTechnicId(ctx context.Context, exerciseId int64) (int64, error)
+
+	SetDot(ctx context.Context, req *model.Dot, positionId int64) error
+	SetPosition(ctx context.Context, number int64, technicId int64) (int64, error)
+	SetTechnic(ctx context.Context, exerciseId int64) (int64, error)
 }

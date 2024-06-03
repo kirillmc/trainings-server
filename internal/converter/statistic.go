@@ -3,6 +3,7 @@ package converter
 import (
 	"google.golang.org/protobuf/types/known/timestamppb"
 
+	"github.com/kirillmc/platform_common/pkg/nillable"
 	"github.com/kirillmc/trainings-server/internal/model"
 	desc "github.com/kirillmc/trainings-server/pkg/training_v1"
 )
@@ -36,7 +37,7 @@ func ToGetStatisticResponseFromService(statistic *model.Statistic) *desc.Statist
 func ToStatitsticUpdateFromDesc(statistic *desc.UpdateStatisticRequest) *model.StatisticToUpdate {
 	return &model.StatisticToUpdate{
 		Id:       statistic.GetId(),
-		Quantity: statistic.Info.GetQuantity(),
-		Weight:   statistic.Info.GetWeight(),
+		Quantity: nillable.CreateNillableInt(statistic.Info.Quantity),
+		Weight:   nillable.CreateNillableDouble(statistic.Info.Weight),
 	}
 }

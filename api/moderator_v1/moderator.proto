@@ -1,0 +1,95 @@
+syntax = "proto3";
+
+package moderator_v1;
+
+import "google/protobuf/empty.proto";
+//import "google/protobuf/wrappers.proto";
+import "google/api/annotations.proto";
+//import "google/protobuf/timestamp.proto";
+//import "validate/validate.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+
+option go_package = "ithub.com/kirillmc/trainings-server/pkg/moderator_v1;moderator_v1";
+
+option(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+  info:{
+    title:"Training SERVER MODERATION API",
+    version:"1.0.0",
+    contact:{
+      name:"Telegram",
+      email:"https://t.me/McK03"
+    };
+  };
+
+  host:"localhost:8080",
+  schemes:HTTP,
+  schemes:HTTPS,
+  consumes:"application/json",
+  produces:"application/json",
+};
+
+service ModeratorV1{
+  rpc GetProgramsToModeration(google.protobuf.Empty) returns (GetProgramsToModerationResponse){ // Получить список программ, ожидающих модерации
+    option(google.api.http) = {
+      get: "/api/programs-to-moderation"
+    };
+  }
+
+  rpc EnableProgramsPublic(EnableProgramsPublicRequest) returns (google.protobuf.Empty){ // Добавить программу в общий доступ
+    option(google.api.http) = {
+      post: "/api/programs-to-moderation/enable/{program_id}"
+    };
+  }
+
+  rpc DisableProgramsPublic(DisableProgramsPublicRequest) returns (google.protobuf.Empty){ // Отклонить запрос на добавление программы в общий доступ
+    option(google.api.http) = {
+      post: "/api/programs-to-moderation/disable/{program_id}"
+    };
+  }
+
+  rpc SendProgramToModeration(SendProgramToModerationRequest) returns (google.protobuf.Empty){ // Отклoнить запрос на добавление программы в общий доступ
+    option(google.api.http) = {
+      post: "/api/set-program-to-moderation/{program_id}"
+      body:"*"
+    };
+  }
+
+
+}
+
+enum Status{
+  UNKNOWN =0;
+  LOCAl = 1;
+  MODERING = 2;
+  PUBLIC =3;
+}
+
+message TrainingProgramToModerationInfo{
+  string program_name = 1;
+  int64 author_id = 2;
+  string description = 3;
+  Status status = 4;
+}
+
+message TrainingProgramToModeration{
+  int64 id = 1;
+  TrainingProgramToModerationInfo info = 2;
+}
+
+message GetProgramsToModerationResponse{
+  repeated TrainingProgramToModeration programs_to_moderation = 1;
+}
+
+message EnableProgramsPublicRequest{
+  int64 program_id = 1;
+}
+
+message DisableProgramsPublicRequest{
+  int64 program_id = 1;
+}
+
+message SendProgramToModerationRequest{
+  int64 program_id = 1;
+  int64 user_id=2;
+}

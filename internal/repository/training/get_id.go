@@ -34,6 +34,33 @@ func (r *repo) GetUserIdByProgramId(ctx context.Context, programId int64) (int64
 	return id, nil
 }
 
+func (r *repo) GetTrainerIdByProgramId(ctx context.Context, programId int64) (int64, error) {
+	builder := sq.Select(trainerIdColumn).
+		PlaceholderFormat(sq.Dollar).
+		From(trainersProgramsTable).
+		Where(sq.Eq{programIdColumn: programId}).
+		Limit(1)
+
+	query, args, err := builder.ToSql()
+	if err != nil {
+		return 0, err
+	}
+
+	q := db.Query{
+		Name:     "training_repository.GetTrainerIdByProgramId",
+		QueryRaw: query,
+	}
+
+	var id int64
+
+	err = r.db.DB().ScanOneContext(ctx, &id, q, args...)
+	if err != nil {
+		return 0, err
+	}
+
+	return id, nil
+}
+
 func (r *repo) GetProgramIdByTrainDayId(ctx context.Context, trainDayId int64) (int64, error) {
 	builder := sq.Select(programIdColumn).
 		PlaceholderFormat(sq.Dollar).

@@ -1,6 +1,7 @@
 package converter
 
 import (
+	"github.com/kirillmc/platform_common/pkg/nillable"
 	"github.com/kirillmc/trainings-server/internal/model"
 	desc "github.com/kirillmc/trainings-server/pkg/training_v1"
 )
@@ -35,7 +36,7 @@ func ToGetSetsResponseFromService(sets []*model.Set) *desc.GetSetsResponse {
 func ToSetUpdateFromDesc(set *desc.UpdateSetRequest) *model.SetToUpdate {
 	return &model.SetToUpdate{
 		Id:       set.GetId(),
-		Quantity: set.Info.GetQuantity(),
-		Weight:   set.Info.GetWeight(),
+		Quantity: nillable.CreateNillableInt(set.Info.Quantity),
+		Weight:   nillable.CreateNillableDouble(set.Info.Weight),
 	}
 }

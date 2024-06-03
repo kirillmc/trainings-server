@@ -1,6 +1,8 @@
 package model
 
-import "google.golang.org/protobuf/types/known/wrapperspb"
+import (
+	"github.com/kirillmc/platform_common/pkg/nillable"
+)
 
 type Set struct {
 	Id         int64
@@ -17,6 +19,6 @@ type SetToCreate struct {
 
 type SetToUpdate struct {
 	Id       int64
-	Quantity *wrapperspb.Int64Value
-	Weight   *wrapperspb.DoubleValue
+	Quantity nillable.NilInt
+	Weight   nillable.NilDouble
 }

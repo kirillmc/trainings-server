@@ -17,7 +17,8 @@ import (
 	"github.com/kirillmc/platform_common/pkg/closer"
 	"github.com/kirillmc/platform_common/pkg/interceptor"
 	"github.com/kirillmc/trainings-server/internal/config"
-	desc "github.com/kirillmc/trainings-server/pkg/training_v1"
+	descModer "github.com/kirillmc/trainings-server/pkg/moderator_v1"
+	descTraining "github.com/kirillmc/trainings-server/pkg/training_v1"
 	_ "github.com/kirillmc/trainings-server/statik"
 	"github.com/rakyll/statik/fs"
 	"github.com/rs/cors"
@@ -130,16 +131,17 @@ func (a *App) initServiceProvider(_ context.Context) error {
 }
 
 func (a *App) initGRPCServer(ctx context.Context) error {
-	c := a.serviceProvider.InterceptorClient()
+	//	c := a.serviceProvider.InterceptorClient()
 
 	a.grpcServer = grpc.NewServer(
 		grpc.Creds(insecure.NewCredentials()),
-		grpc.ChainUnaryInterceptor(c.PolicyInterceptor, interceptor.ValidateInerceptor),
+		grpc.UnaryInterceptor(interceptor.ValidateInerceptor),
+		//grpc.ChainUnaryInterceptor(c.PolicyInterceptor, c.IsUserExistInterceptor, interceptor.ValidateInerceptor),
 	)
 
 	reflection.Register(a.grpcServer)
-
-	desc.RegisterTrainingV1Server(a.grpcServer, a.serviceProvider.TrainingImplementation(ctx))
+	descModer.RegisterModeratorV1Server(a.grpcServer, a.serviceProvider.ModerImplementation(ctx))
+	descTraining.RegisterTrainingV1Server(a.grpcServer, a.serviceProvider.TrainingImplementation(ctx))
 
 	return nil
 }
@@ -151,14 +153,14 @@ func (a *App) initHTTPServer(ctx context.Context) error {
 		grpc.WithTransportCredentials(insecure.NewCredentials()),
 	}
 
-	err := desc.RegisterTrainingV1HandlerFromEndpoint(ctx, mux, a.serviceProvider.GRPCConfig().Address(), opts)
+	err := descTraining.RegisterTrainingV1HandlerFromEndpoint(ctx, mux, a.serviceProvider.GRPCConfig().Address(), opts)
 	if err != nil {
 		return nil
 	}
 
 	corsMiddleware := cors.New(cors.Options{
 		AllowedOrigins:   []string{"*"},
-		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
+		AllowedMethods:   []string{"GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"},
 		AllowedHeaders:   []string{"Accept", "Content-Type", "Content-Length", "Authorization"},
 		AllowCredentials: true,
 	})

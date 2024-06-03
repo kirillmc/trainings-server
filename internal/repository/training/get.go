@@ -10,8 +10,34 @@ import (
 	modelRepo "github.com/kirillmc/trainings-server/internal/repository/training/model"
 )
 
+func (r *repo) GetPublicPrograms(ctx context.Context) ([]*model.TrainProgram, error) {
+	builder := sq.Select(idColumm, programName, description, status).
+		PlaceholderFormat(sq.Dollar).
+		From(trainProgramsTable).
+		Where(sq.Eq{status: publicStatusValue})
+
+	query, args, err := builder.ToSql()
+	if err != nil {
+		return nil, err
+	}
+
+	q := db.Query{
+		Name:     "training_repository.GetPublicPrograms",
+		QueryRaw: query,
+	}
+
+	var programs []*modelRepo.TrainProgram
+
+	err = r.db.DB().ScanAllContext(ctx, &programs, q, args...)
+	if err != nil {
+		return nil, err
+	}
+
+	return converter.ToTrainingProgramsFromRepo(programs), nil
+}
+
 func (r *repo) GetProgram(ctx context.Context, id int64) (*model.TrainProgram, error) {
-	builder := sq.Select(idColumm, programName, description, isPublic).
+	builder := sq.Select(idColumm, programName, description, status).
 		PlaceholderFormat(sq.Dollar).
 		From(trainProgramsTable).
 		Where(sq.Eq{idColumm: id}).
@@ -65,7 +91,7 @@ func (r *repo) GetTrainDay(ctx context.Context, id int64) (*model.TrainDay, erro
 }
 
 func (r *repo) GetExercise(ctx context.Context, id int64) (*model.Exercise, error) {
-	builder := sq.Select(idColumm, exerciseName, pictures, description).
+	builder := sq.Select(idColumm, exerciseName, description).
 		PlaceholderFormat(sq.Dollar).
 		From(exercisesTable).
 		Where(sq.Eq{idColumm: id}).

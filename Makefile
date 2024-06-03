@@ -3,7 +3,7 @@ include .env
 LOCAL_BIN:=$(CURDIR)/bin
 
 LOCAL_MIGRATION_DIR=$(MIGRATION_DIR)
-LOCAL_MIGRATION_DSN="host=localhost port=$(PG_PORT) dbname=$(PG_DATABASE_NAME) user=$(PG_USER) password=$(PG_PASSWORD) sslmode=disable"
+LOCAL_MIGRATION_DSN="host=$(PG_HOST) port=$(PG_PORT) dbname=$(PG_DATABASE_NAME) user=$(PG_USER) password=$(PG_PASSWORD) sslmode=disable"
 
 install-golangci-lint:
 	GOBIN=$(LOCAL_BIN) go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.53.3
@@ -27,6 +27,8 @@ get-deps:
 
 generate:
 	mkdir -p pkg/swagger
+	make generate-moderator-api
+	make generate-trainer-api
 	make generate-training-api
 	$(LOCAL_BIN)/statik -src=pkg/swagger/ -include='*.css,*.html,*.js,*.json,*.png'
 
@@ -44,6 +46,36 @@ generate-training-api:
     --openapiv2_out=allow_merge=true,merge_file_name=api:pkg/swagger \
     --plugin=protoc-gen-openapiv2=bin/protoc-gen-openapiv2 \
     api/training_v1/training.proto
+
+generate-moderator-api:
+	mkdir -p pkg/moderator_v1
+	protoc --proto_path api/moderator_v1 --proto_path vendor.protogen \
+    --go_out=pkg/moderator_v1 --go_opt=paths=source_relative \
+    --plugin=protoc-gen-go=bin/protoc-gen-go \
+    --go-grpc_out=pkg/moderator_v1 --go-grpc_opt=paths=source_relative \
+    --plugin=protoc-gen-go-grpc=bin/protoc-gen-go-grpc \
+    --validate_out lang=go:pkg/moderator_v1 --validate_opt=paths=source_relative \
+    --plugin=protoc-gen-validate=bin/protoc-gen-validate \
+    --grpc-gateway_out=pkg/moderator_v1 --grpc-gateway_opt=paths=source_relative \
+    --plugin=protoc-gen-grpc-gateway=bin/protoc-gen-grpc-gateway \
+    --openapiv2_out=allow_merge=true,merge_file_name=api_moder:pkg/swagger \
+    --plugin=protoc-gen-openapiv2=bin/protoc-gen-openapiv2 \
+    api/moderator_v1/moderator.proto
+
+generate-trainer-api:
+	mkdir -p pkg/trainer_v1
+	protoc --proto_path api/trainer_v1 --proto_path vendor.protogen \
+    --go_out=pkg/trainer_v1 --go_opt=paths=source_relative \
+    --plugin=protoc-gen-go=bin/protoc-gen-go \
+    --go-grpc_out=pkg/trainer_v1 --go-grpc_opt=paths=source_relative \
+    --plugin=protoc-gen-go-grpc=bin/protoc-gen-go-grpc \
+    --validate_out lang=go:pkg/trainer_v1 --validate_opt=paths=source_relative \
+    --plugin=protoc-gen-validate=bin/protoc-gen-validate \
+    --grpc-gateway_out=pkg/trainer_v1 --grpc-gateway_opt=paths=source_relative \
+    --plugin=protoc-gen-grpc-gateway=bin/protoc-gen-grpc-gateway \
+    --openapiv2_out=allow_merge=true,merge_file_name=api_trainer:pkg/swagger \
+    --plugin=protoc-gen-openapiv2=bin/protoc-gen-openapiv2 \
+    api/trainer_v1/trainer.proto
 
 local-migration-status:
 	$(LOCAL_BIN)/goose -dir ${LOCAL_MIGRATION_DIR} postgres ${LOCAL_MIGRATION_DSN} status -v
@@ -91,3 +123,12 @@ generate-training-api1:
     --openapiv2_out=allow_merge=true,merge_file_name=api:pkg/swagger \
     --plugin=protoc-gen-openapiv2=$(LOCAL_BIN)/protoc-gen-openapiv2 \
 	api/training_v1/training.proto
+
+build:
+	GOOS=linux GOARCH=amd64 go build -o service_linux cmd/grpc_server/main.go
+
+docker-build-and-push:
+	docker buildx build --no-cache --platform linux/amd64 -t cr.selcloud.ru/trainings/trainings_server:v0.0.2 .
+	#docker login cr.selcloud.ru/trainings
+	docker login -u token -p CRgAAAAAuxkdfrx-7EJxFSAdxCfZox1zPhh1ZOHx cr.selcloud.ru/trainings
+	docker push cr.selcloud.ru/trainings/trainings_server:v0.0.2

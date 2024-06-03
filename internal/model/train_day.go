@@ -1,6 +1,8 @@
 package model
 
-import "google.golang.org/protobuf/types/known/wrapperspb"
+import (
+	"github.com/kirillmc/platform_common/pkg/nillable"
+)
 
 type TrainDay struct {
 	Id          int64
@@ -17,6 +19,6 @@ type TrainDayToCreate struct {
 
 type TrainDayToUpdate struct {
 	Id          int64
-	DayName     *wrapperspb.StringValue
-	Description *wrapperspb.StringValue
+	DayName     nillable.NilString
+	Description nillable.NilString
 }

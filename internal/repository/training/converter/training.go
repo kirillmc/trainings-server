@@ -10,8 +10,16 @@ func ToTrainingProgramFromRepo(trainingProgram *modelRepo.TrainProgram) *model.T
 		Id:          trainingProgram.Id,
 		ProgramName: trainingProgram.ProgramName,
 		Description: trainingProgram.Description,
-		IsPublic:    trainingProgram.IsPublic,
+		Status:      trainingProgram.Status,
 	}
+}
+func ToTrainingProgramsFromRepo(trainingPrograms []*modelRepo.TrainProgram) []*model.TrainProgram {
+	var programs []*model.TrainProgram
+	for _, elem := range trainingPrograms {
+		programs = append(programs, ToTrainingProgramFromRepo(elem))
+	}
+
+	return programs
 }
 
 func ToTrainDayFromRepo(trainDay *modelRepo.TrainDay) *model.TrainDay {
@@ -26,7 +34,6 @@ func ToExerciseFromRepo(exercise *modelRepo.Exercise) *model.Exercise {
 	return &model.Exercise{
 		Id:           exercise.Id,
 		ExerciseName: exercise.ExerciseName,
-		Pictures:     exercise.Pictures,
 		Description:  exercise.Description,
 	}
 }
@@ -49,5 +56,13 @@ func ToStatisticFromRepo(set *modelRepo.Statistic) *model.Statistic {
 		ExerciseId: set.ExerciseId,
 		SetId:      set.SetId,
 		Time:       set.Time,
+	}
+}
+
+func ToDotFromRepo(dot *modelRepo.Dots) *model.DotsToGet {
+	return &model.DotsToGet{
+		Number:      dot.Number,
+		XCoordinate: dot.XCoordinate,
+		YCoordinate: dot.YCoordinate,
 	}
 }

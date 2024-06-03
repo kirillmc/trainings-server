@@ -26,3 +26,11 @@ func (c *accessClient) Check(ctx context.Context, endpoint string) error {
 
 	return err
 }
+
+func (c *accessClient) CheckIsExistUser(ctx context.Context, userId int64) error {
+	_, err := c.client.CheckIsExistUser(ctx, &descAccess.CheckIsExistUserRequest{
+		UserId: userId,
+	})
+
+	return err
+}

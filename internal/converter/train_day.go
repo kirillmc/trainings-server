@@ -1,6 +1,7 @@
 package converter
 
 import (
+	"github.com/kirillmc/platform_common/pkg/nillable"
 	"github.com/kirillmc/trainings-server/internal/model"
 	desc "github.com/kirillmc/trainings-server/pkg/training_v1"
 )
@@ -35,7 +36,7 @@ func ToGetTrainDaysResponseFromService(trainDays []*model.TrainDay) *desc.GetTra
 func ToTrainDayUpdateFromDesc(trainDay *desc.UpdateTrainDayRequest) *model.TrainDayToUpdate {
 	return &model.TrainDayToUpdate{
 		Id:          trainDay.GetId(),
-		DayName:     trainDay.Info.GetDayName(),
-		Description: trainDay.Info.GetDescription(),
+		DayName:     nillable.Create(trainDay.Info.DayName),
+		Description: nillable.Create(trainDay.Info.Description),
 	}
 }

@@ -63,7 +63,7 @@ func (m *TrainingProgramInfo) validate(all bool) error {
 
 	// no validation rules for Description
 
-	// no validation rules for IsPublic
+	// no validation rules for Status
 
 	if len(errors) > 0 {
 		return TrainingProgramInfoMultiError(errors)
@@ -144,6 +144,114 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = TrainingProgramInfoValidationError{}
+
+// Validate checks the field values on PublicTrainingProgramInfo with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *PublicTrainingProgramInfo) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on PublicTrainingProgramInfo with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// PublicTrainingProgramInfoMultiError, or nil if none found.
+func (m *PublicTrainingProgramInfo) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *PublicTrainingProgramInfo) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for ProgramName
+
+	// no validation rules for AuthorId
+
+	// no validation rules for Description
+
+	if len(errors) > 0 {
+		return PublicTrainingProgramInfoMultiError(errors)
+	}
+
+	return nil
+}
+
+// PublicTrainingProgramInfoMultiError is an error wrapping multiple validation
+// errors returned by PublicTrainingProgramInfo.ValidateAll() if the
+// designated constraints aren't met.
+type PublicTrainingProgramInfoMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m PublicTrainingProgramInfoMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m PublicTrainingProgramInfoMultiError) AllErrors() []error { return m }
+
+// PublicTrainingProgramInfoValidationError is the validation error returned by
+// PublicTrainingProgramInfo.Validate if the designated constraints aren't met.
+type PublicTrainingProgramInfoValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e PublicTrainingProgramInfoValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e PublicTrainingProgramInfoValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e PublicTrainingProgramInfoValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e PublicTrainingProgramInfoValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e PublicTrainingProgramInfoValidationError) ErrorName() string {
+	return "PublicTrainingProgramInfoValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e PublicTrainingProgramInfoValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sPublicTrainingProgramInfo.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = PublicTrainingProgramInfoValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = PublicTrainingProgramInfoValidationError{}
 
 // Validate checks the field values on TrainDayInfo with the rules defined in
 // the proto definition for this message. If any rules are violated, the first
@@ -653,34 +761,7 @@ func (m *UpdateTrainingProgramInfo) validate(all bool) error {
 		}
 	}
 
-	if all {
-		switch v := interface{}(m.GetIsPublic()).(type) {
-		case interface{ ValidateAll() error }:
-			if err := v.ValidateAll(); err != nil {
-				errors = append(errors, UpdateTrainingProgramInfoValidationError{
-					field:  "IsPublic",
-					reason: "embedded message failed validation",
-					cause:  err,
-				})
-			}
-		case interface{ Validate() error }:
-			if err := v.Validate(); err != nil {
-				errors = append(errors, UpdateTrainingProgramInfoValidationError{
-					field:  "IsPublic",
-					reason: "embedded message failed validation",
-					cause:  err,
-				})
-			}
-		}
-	} else if v, ok := interface{}(m.GetIsPublic()).(interface{ Validate() error }); ok {
-		if err := v.Validate(); err != nil {
-			return UpdateTrainingProgramInfoValidationError{
-				field:  "IsPublic",
-				reason: "embedded message failed validation",
-				cause:  err,
-			}
-		}
-	}
+	// no validation rules for Status
 
 	if len(errors) > 0 {
 		return UpdateTrainingProgramInfoMultiError(errors)
@@ -1559,6 +1640,139 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = TrainingProgramValidationError{}
+
+// Validate checks the field values on PublicTrainingProgram with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *PublicTrainingProgram) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on PublicTrainingProgram with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// PublicTrainingProgramMultiError, or nil if none found.
+func (m *PublicTrainingProgram) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *PublicTrainingProgram) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Id
+
+	if all {
+		switch v := interface{}(m.GetInfo()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, PublicTrainingProgramValidationError{
+					field:  "Info",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, PublicTrainingProgramValidationError{
+					field:  "Info",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetInfo()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return PublicTrainingProgramValidationError{
+				field:  "Info",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if len(errors) > 0 {
+		return PublicTrainingProgramMultiError(errors)
+	}
+
+	return nil
+}
+
+// PublicTrainingProgramMultiError is an error wrapping multiple validation
+// errors returned by PublicTrainingProgram.ValidateAll() if the designated
+// constraints aren't met.
+type PublicTrainingProgramMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m PublicTrainingProgramMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m PublicTrainingProgramMultiError) AllErrors() []error { return m }
+
+// PublicTrainingProgramValidationError is the validation error returned by
+// PublicTrainingProgram.Validate if the designated constraints aren't met.
+type PublicTrainingProgramValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e PublicTrainingProgramValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e PublicTrainingProgramValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e PublicTrainingProgramValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e PublicTrainingProgramValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e PublicTrainingProgramValidationError) ErrorName() string {
+	return "PublicTrainingProgramValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e PublicTrainingProgramValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sPublicTrainingProgram.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = PublicTrainingProgramValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = PublicTrainingProgramValidationError{}
 
 // Validate checks the field values on TrainDay with the rules defined in the
 // proto definition for this message. If any rules are violated, the first
@@ -3868,6 +4082,145 @@ var _ interface {
 	ErrorName() string
 } = GetTrainingProgramsResponseValidationError{}
 
+// Validate checks the field values on GetPublicTrainingProgramsResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *GetPublicTrainingProgramsResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on GetPublicTrainingProgramsResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// GetPublicTrainingProgramsResponseMultiError, or nil if none found.
+func (m *GetPublicTrainingProgramsResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *GetPublicTrainingProgramsResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetTrainPrograms() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, GetPublicTrainingProgramsResponseValidationError{
+						field:  fmt.Sprintf("TrainPrograms[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, GetPublicTrainingProgramsResponseValidationError{
+						field:  fmt.Sprintf("TrainPrograms[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return GetPublicTrainingProgramsResponseValidationError{
+					field:  fmt.Sprintf("TrainPrograms[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return GetPublicTrainingProgramsResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// GetPublicTrainingProgramsResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// GetPublicTrainingProgramsResponse.ValidateAll() if the designated
+// constraints aren't met.
+type GetPublicTrainingProgramsResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetPublicTrainingProgramsResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetPublicTrainingProgramsResponseMultiError) AllErrors() []error { return m }
+
+// GetPublicTrainingProgramsResponseValidationError is the validation error
+// returned by GetPublicTrainingProgramsResponse.Validate if the designated
+// constraints aren't met.
+type GetPublicTrainingProgramsResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetPublicTrainingProgramsResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetPublicTrainingProgramsResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetPublicTrainingProgramsResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetPublicTrainingProgramsResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetPublicTrainingProgramsResponseValidationError) ErrorName() string {
+	return "GetPublicTrainingProgramsResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetPublicTrainingProgramsResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetPublicTrainingProgramsResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetPublicTrainingProgramsResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetPublicTrainingProgramsResponseValidationError{}
+
 // Validate checks the field values on GetTrainingProgramResponse with the
 // rules defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.
@@ -4926,3 +5279,863 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = GetStatisticResponseValidationError{}
+
+// Validate checks the field values on AddProgramFromPublicRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *AddProgramFromPublicRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on AddProgramFromPublicRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// AddProgramFromPublicRequestMultiError, or nil if none found.
+func (m *AddProgramFromPublicRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *AddProgramFromPublicRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for ProgramId
+
+	// no validation rules for UserId
+
+	if len(errors) > 0 {
+		return AddProgramFromPublicRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// AddProgramFromPublicRequestMultiError is an error wrapping multiple
+// validation errors returned by AddProgramFromPublicRequest.ValidateAll() if
+// the designated constraints aren't met.
+type AddProgramFromPublicRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m AddProgramFromPublicRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m AddProgramFromPublicRequestMultiError) AllErrors() []error { return m }
+
+// AddProgramFromPublicRequestValidationError is the validation error returned
+// by AddProgramFromPublicRequest.Validate if the designated constraints
+// aren't met.
+type AddProgramFromPublicRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e AddProgramFromPublicRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e AddProgramFromPublicRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e AddProgramFromPublicRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e AddProgramFromPublicRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e AddProgramFromPublicRequestValidationError) ErrorName() string {
+	return "AddProgramFromPublicRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e AddProgramFromPublicRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sAddProgramFromPublicRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = AddProgramFromPublicRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = AddProgramFromPublicRequestValidationError{}
+
+// Validate checks the field values on Dots with the rules defined in the proto
+// definition for this message. If any rules are violated, the first error
+// encountered is returned, or nil if there are no violations.
+func (m *Dots) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on Dots with the rules defined in the
+// proto definition for this message. If any rules are violated, the result is
+// a list of violation errors wrapped in DotsMultiError, or nil if none found.
+func (m *Dots) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *Dots) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for DotNumber
+
+	// no validation rules for XCoordinate
+
+	// no validation rules for YCoordinate
+
+	if len(errors) > 0 {
+		return DotsMultiError(errors)
+	}
+
+	return nil
+}
+
+// DotsMultiError is an error wrapping multiple validation errors returned by
+// Dots.ValidateAll() if the designated constraints aren't met.
+type DotsMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m DotsMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m DotsMultiError) AllErrors() []error { return m }
+
+// DotsValidationError is the validation error returned by Dots.Validate if the
+// designated constraints aren't met.
+type DotsValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e DotsValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e DotsValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e DotsValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e DotsValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e DotsValidationError) ErrorName() string { return "DotsValidationError" }
+
+// Error satisfies the builtin error interface
+func (e DotsValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sDots.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = DotsValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = DotsValidationError{}
+
+// Validate checks the field values on Position with the rules defined in the
+// proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *Position) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on Position with the rules defined in
+// the proto definition for this message. If any rules are violated, the
+// result is a list of violation errors wrapped in PositionMultiError, or nil
+// if none found.
+func (m *Position) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *Position) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for PositionNumber
+
+	for idx, item := range m.GetDots() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, PositionValidationError{
+						field:  fmt.Sprintf("Dots[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, PositionValidationError{
+						field:  fmt.Sprintf("Dots[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return PositionValidationError{
+					field:  fmt.Sprintf("Dots[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return PositionMultiError(errors)
+	}
+
+	return nil
+}
+
+// PositionMultiError is an error wrapping multiple validation errors returned
+// by Position.ValidateAll() if the designated constraints aren't met.
+type PositionMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m PositionMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m PositionMultiError) AllErrors() []error { return m }
+
+// PositionValidationError is the validation error returned by
+// Position.Validate if the designated constraints aren't met.
+type PositionValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e PositionValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e PositionValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e PositionValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e PositionValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e PositionValidationError) ErrorName() string { return "PositionValidationError" }
+
+// Error satisfies the builtin error interface
+func (e PositionValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sPosition.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = PositionValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = PositionValidationError{}
+
+// Validate checks the field values on Technic with the rules defined in the
+// proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *Technic) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on Technic with the rules defined in the
+// proto definition for this message. If any rules are violated, the result is
+// a list of violation errors wrapped in TechnicMultiError, or nil if none found.
+func (m *Technic) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *Technic) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for ExerciseId
+
+	for idx, item := range m.GetPositions() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, TechnicValidationError{
+						field:  fmt.Sprintf("Positions[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, TechnicValidationError{
+						field:  fmt.Sprintf("Positions[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return TechnicValidationError{
+					field:  fmt.Sprintf("Positions[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return TechnicMultiError(errors)
+	}
+
+	return nil
+}
+
+// TechnicMultiError is an error wrapping multiple validation errors returned
+// by Technic.ValidateAll() if the designated constraints aren't met.
+type TechnicMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m TechnicMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m TechnicMultiError) AllErrors() []error { return m }
+
+// TechnicValidationError is the validation error returned by Technic.Validate
+// if the designated constraints aren't met.
+type TechnicValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e TechnicValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e TechnicValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e TechnicValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e TechnicValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e TechnicValidationError) ErrorName() string { return "TechnicValidationError" }
+
+// Error satisfies the builtin error interface
+func (e TechnicValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sTechnic.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = TechnicValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = TechnicValidationError{}
+
+// Validate checks the field values on SetTechnicRequest with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// first error encountered is returned, or nil if there are no violations.
+func (m *SetTechnicRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on SetTechnicRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// SetTechnicRequestMultiError, or nil if none found.
+func (m *SetTechnicRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *SetTechnicRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetTechnics() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, SetTechnicRequestValidationError{
+						field:  fmt.Sprintf("Technics[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, SetTechnicRequestValidationError{
+						field:  fmt.Sprintf("Technics[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return SetTechnicRequestValidationError{
+					field:  fmt.Sprintf("Technics[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return SetTechnicRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// SetTechnicRequestMultiError is an error wrapping multiple validation errors
+// returned by SetTechnicRequest.ValidateAll() if the designated constraints
+// aren't met.
+type SetTechnicRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m SetTechnicRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m SetTechnicRequestMultiError) AllErrors() []error { return m }
+
+// SetTechnicRequestValidationError is the validation error returned by
+// SetTechnicRequest.Validate if the designated constraints aren't met.
+type SetTechnicRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SetTechnicRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SetTechnicRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SetTechnicRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SetTechnicRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SetTechnicRequestValidationError) ErrorName() string {
+	return "SetTechnicRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e SetTechnicRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSetTechnicRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SetTechnicRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SetTechnicRequestValidationError{}
+
+// Validate checks the field values on GetTechnicRequest with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// first error encountered is returned, or nil if there are no violations.
+func (m *GetTechnicRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on GetTechnicRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// GetTechnicRequestMultiError, or nil if none found.
+func (m *GetTechnicRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *GetTechnicRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for ExerciseId
+
+	if len(errors) > 0 {
+		return GetTechnicRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// GetTechnicRequestMultiError is an error wrapping multiple validation errors
+// returned by GetTechnicRequest.ValidateAll() if the designated constraints
+// aren't met.
+type GetTechnicRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetTechnicRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetTechnicRequestMultiError) AllErrors() []error { return m }
+
+// GetTechnicRequestValidationError is the validation error returned by
+// GetTechnicRequest.Validate if the designated constraints aren't met.
+type GetTechnicRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetTechnicRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetTechnicRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetTechnicRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetTechnicRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetTechnicRequestValidationError) ErrorName() string {
+	return "GetTechnicRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetTechnicRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetTechnicRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetTechnicRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetTechnicRequestValidationError{}
+
+// Validate checks the field values on GetTechnicResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *GetTechnicResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on GetTechnicResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// GetTechnicResponseMultiError, or nil if none found.
+func (m *GetTechnicResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *GetTechnicResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for TechnicId
+
+	// no validation rules for ExerciseId
+
+	for idx, item := range m.GetPositions() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, GetTechnicResponseValidationError{
+						field:  fmt.Sprintf("Positions[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, GetTechnicResponseValidationError{
+						field:  fmt.Sprintf("Positions[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return GetTechnicResponseValidationError{
+					field:  fmt.Sprintf("Positions[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return GetTechnicResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// GetTechnicResponseMultiError is an error wrapping multiple validation errors
+// returned by GetTechnicResponse.ValidateAll() if the designated constraints
+// aren't met.
+type GetTechnicResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetTechnicResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetTechnicResponseMultiError) AllErrors() []error { return m }
+
+// GetTechnicResponseValidationError is the validation error returned by
+// GetTechnicResponse.Validate if the designated constraints aren't met.
+type GetTechnicResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetTechnicResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetTechnicResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetTechnicResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetTechnicResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetTechnicResponseValidationError) ErrorName() string {
+	return "GetTechnicResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetTechnicResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetTechnicResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetTechnicResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetTechnicResponseValidationError{}

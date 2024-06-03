@@ -1,12 +1,16 @@
 package model
 
-import "time"
+import (
+	"time"
+
+	"github.com/kirillmc/trainings-server/internal/model"
+)
 
 type TrainProgram struct {
-	Id          int64  `db:"id"`
-	ProgramName string `db:"program_name"`
-	Description string `db:"description"`
-	IsPublic    bool   `db:"is_public"`
+	Id          int64        `db:"id"`
+	ProgramName string       `db:"program_name"`
+	Description string       `db:"description"`
+	Status      model.Status `db:"status"`
 }
 
 type TrainDay struct {
@@ -18,7 +22,6 @@ type TrainDay struct {
 type Exercise struct {
 	Id           int64  `db:"id"`
 	ExerciseName string `db:"exercise_name"`
-	Pictures     string `db:"pictures"`
 	Description  string `db:"description"`
 }
 

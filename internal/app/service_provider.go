@@ -11,6 +11,8 @@ import (
 	"github.com/kirillmc/platform_common/pkg/db"
 	"github.com/kirillmc/platform_common/pkg/db/pg"
 	descAccess "github.com/kirillmc/trainings-auth/pkg/access_v1"
+	"github.com/kirillmc/trainings-server/internal/api/moderator"
+	"github.com/kirillmc/trainings-server/internal/api/trainer"
 	"github.com/kirillmc/trainings-server/internal/api/training"
 	"github.com/kirillmc/trainings-server/internal/client/rpc"
 	"github.com/kirillmc/trainings-server/internal/client/rpc/access"
@@ -18,8 +20,12 @@ import (
 	"github.com/kirillmc/trainings-server/internal/config/env"
 	"github.com/kirillmc/trainings-server/internal/interceptor"
 	"github.com/kirillmc/trainings-server/internal/repository"
+	moderRepo "github.com/kirillmc/trainings-server/internal/repository/moder"
+	trainerRepo "github.com/kirillmc/trainings-server/internal/repository/trainer"
 	trainingRepo "github.com/kirillmc/trainings-server/internal/repository/training"
 	"github.com/kirillmc/trainings-server/internal/service"
+	moderService "github.com/kirillmc/trainings-server/internal/service/moder"
+	trainerService "github.com/kirillmc/trainings-server/internal/service/trainer"
 	trainingService "github.com/kirillmc/trainings-server/internal/service/training"
 )
 
@@ -34,9 +40,17 @@ type serviceProvider struct {
 	accessClient      rpc.AccessClient
 	interceptorClient *interceptor.Interceptor
 
+	trainerRepository     repository.TrainerRepository
+	trainerService        service.TrainerService
+	trainerImplementation *trainer.Implementation
+
 	trainingRepository     repository.TrainingRepository
 	trainingService        service.TrainingService
 	trainingImplementation *training.Implementation
+
+	moderRepository     repository.ModerRepository
+	moderService        service.ModerService
+	moderImplementation *moderator.Implementation
 }
 
 func newServiceProvider() *serviceProvider {
@@ -163,6 +177,22 @@ func (s *serviceProvider) TrainingRepository(ctx context.Context) repository.Tra
 	return s.trainingRepository
 }
 
+func (s *serviceProvider) TrainerRepository(ctx context.Context) repository.TrainerRepository {
+	if s.trainerRepository == nil {
+		s.trainerRepository = trainerRepo.NewRepository(s.DBClient(ctx))
+	}
+
+	return s.trainerRepository
+}
+
+func (s *serviceProvider) ModerRepository(ctx context.Context) repository.ModerRepository {
+	if s.moderRepository == nil {
+		s.moderRepository = moderRepo.NewRepository(s.DBClient(ctx))
+	}
+
+	return s.moderRepository
+}
+
 func (s *serviceProvider) TrainingService(ctx context.Context) service.TrainingService {
 	if s.trainingService == nil {
 		s.trainingService = trainingService.NewService(s.TrainingRepository(ctx))
@@ -171,10 +201,42 @@ func (s *serviceProvider) TrainingService(ctx context.Context) service.TrainingS
 	return s.trainingService
 }
 
+func (s *serviceProvider) TrainerService(ctx context.Context) service.TrainerService {
+	if s.trainerService == nil {
+		s.trainerService = trainerService.NewService(s.TrainerRepository(ctx))
+	}
+
+	return s.trainerService
+}
+
+func (s *serviceProvider) ModerService(ctx context.Context) service.ModerService {
+	if s.moderService == nil {
+		s.moderService = moderService.NewService(s.ModerRepository(ctx))
+	}
+
+	return s.moderService
+}
+
 func (s *serviceProvider) TrainingImplementation(ctx context.Context) *training.Implementation {
 	if s.trainingImplementation == nil {
 		s.trainingImplementation = training.NewImplementation(s.TrainingService(ctx))
 	}
 
 	return s.trainingImplementation
+}
+
+func (s *serviceProvider) TrainerImplementation(ctx context.Context) *trainer.Implementation {
+	if s.trainerImplementation == nil {
+		s.trainerImplementation = trainer.NewImplementation(s.TrainerService(ctx))
+	}
+
+	return s.trainerImplementation
+}
+
+func (s *serviceProvider) ModerImplementation(ctx context.Context) *moderator.Implementation {
+	if s.moderImplementation == nil {
+		s.moderImplementation = moderator.NewImplementation(s.ModerService(ctx))
+	}
+
+	return s.moderImplementation
 }

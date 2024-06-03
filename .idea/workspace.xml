@@ -5,16 +5,86 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4dae54d-066c-46b3-9c18-2a73713c565c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/internal/client/rpc/access/access.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/client/rpc/rpc.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/config/env/access.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/interceptor/access.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/moderator_v1/moderator.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/trainer_v1/trainer.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/api/moderator/disable_programs_public.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/api/moderator/enable_programs_public.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/api/moderator/get_programs_to_moderation.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/api/moderator/service.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/api/trainer/block.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/api/trainer/get.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/api/trainer/service.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/api/trainer/set_program_to_client.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/api/training/technic.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/converter/technic.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/converter/trainer.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/model/technic.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/model/trainer.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/repository/moder/disable_programs_public.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/repository/moder/enable_programs_public.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/repository/moder/get_programs_to_moderation.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/repository/moder/repository.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/repository/trainer/block.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/repository/trainer/repository.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/repository/training/model/technic.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/repository/training/technic.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/service/moder/disable_programs_public.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/service/moder/enable_programs_public.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/service/moder/get_programs_to_moderation.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/service/moder/service.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/service/trainer/block.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/service/trainer/get.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/service/trainer/service.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/service/trainer/set_program_to_client.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/service/training/technic.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a25c5c42-c44c-4124-949c-eb252b368263.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a25c5c42-c44c-4124-949c-eb252b368263.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a25c5c42-c44c-4124-949c-eb252b368263/storage_v2/_src_/database/training.2ggQTA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a25c5c42-c44c-4124-949c-eb252b368263/storage_v2/_src_/database/training.2ggQTA/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/training_v1/training.proto" beforeDir="false" afterPath="$PROJECT_DIR$/api/training_v1/training.proto" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/api/training/delete.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/training/delete.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/api/training/get_list.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/training/get_list.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/api/training/update.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/training/update.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/app/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/app/app.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/app/service_provider.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/app/service_provider.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/config/config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/client/rpc/access/access.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/client/rpc/access/access.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/client/rpc/rpc.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/client/rpc/rpc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/converter/exercise.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/converter/exercise.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/converter/set.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/converter/set.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/converter/statistic.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/converter/statistic.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/converter/train_day.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/converter/train_day.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/converter/train_program.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/converter/train_program.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/interceptor/access.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/interceptor/access.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/model/exercise.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/exercise.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/model/set.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/set.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/model/statistic.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/statistic.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/model/train_day.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/train_day.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/model/train_program.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/train_program.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/repository/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/repository/repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/repository/training/converter/training.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/repository/training/converter/training.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/repository/training/create.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/repository/training/create.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/repository/training/create_linked_tables.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/repository/training/create_linked_tables.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/repository/training/get.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/repository/training/get.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/repository/training/get_id.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/repository/training/get_id.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/repository/training/model/training.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/repository/training/model/training.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/repository/training/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/repository/training/repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/repository/training/update.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/repository/training/update.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/service/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/service/training/create.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/training/create.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/service/training/get_list.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/training/get_list.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20240413210123_trainigs_tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/20240413210123_trainigs_tables.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/swagger/api.swagger.json" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/swagger/api.swagger.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/swagger/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/swagger/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/training_v1/training.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/training_v1/training.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/training_v1/training.pb.gw.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/training_v1/training.pb.gw.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/training_v1/training.pb.validate.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/training_v1/training.pb.validate.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/training_v1/training_grpc.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/training_v1/training_grpc.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statik/statik.go" beforeDir="false" afterPath="$PROJECT_DIR$/statik/statik.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +98,7 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" url="file://$USER_HOME$/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.1.linux-amd64" />
+  <component name="GOROOT" url="file:///usr/local/go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -41,12 +111,13 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;git@github.com:kirillmc/trainings-server.git&quot;,
-    &quot;accountId&quot;: &quot;eb81f30b-fb81-4c55-b942-c3c84b863fd7&quot;
+    &quot;accountId&quot;: &quot;88bbae94-cf24-473c-bc59-f7abdcd14823&quot;
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$USER_HOME$/go/pkg/mod/github.com/kirillmc/platform_common@v0.0.0-20240409070039-be2988157a23/pkg/db/db.go" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.1.linux-amd64/src/net/http/server.go" root0="SKIP_INSPECTION" />
+    <setting file="jar://$APPLICATION_HOME_DIR$/plugins/protoeditor/lib/protoeditor.jar!/include/google/protobuf/wrappers.proto" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/go/pkg/mod/github.com/golang/protobuf@v1.5.4/ptypes/wrappers/wrappers.pb.go" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/go/pkg/mod/github.com/kirillmc/platform_common@v0.0.0-20240512082108-0399c02a920d/pkg/nillable/nil_string.go" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -56,32 +127,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
-    &quot;Go Build.go build github.com/kirillmc/trainings-server/cmd/grpc_server.executor&quot;: &quot;Run&quot;,
-    &quot;Makefile Target.create-migration.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.automatic.dependencies.download&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/kirill/GolandProjects/STUDY/VKR_v1/trainings-server&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;go.sdk&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultGoTemplateProperty": "Go File",
+    "Go Build.go build github.com/kirillmc/trainings-server/cmd/grpc_server.executor": "Run",
+    "Makefile Target.create-migration.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.automatic.dependencies.download": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "git-widget-placeholder": "master",
+    "go.import.settings.migrated": "true",
+    "last_opened_file_path": "/home/kirill/GolandProjects/NIR/fitter",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.editor"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/internal/model" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/pkg/swagger" />
     </key>
@@ -116,8 +189,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-gosdk-33c477a475b1-b97fc8a1e17c-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-241.14494.238" />
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-GO-241.14494.238" />
+        <option value="bundled-gosdk-33c477a475b1-e0158606a674-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-241.15989.157" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-GO-241.15989.157" />
       </set>
     </attachedChunks>
   </component>

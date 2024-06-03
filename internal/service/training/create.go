@@ -17,6 +17,11 @@ func (s *serv) CreateProgram(ctx context.Context, req *model.TrainProgramToCreat
 		return 0, err
 	}
 
+	err = s.trainingRepository.CreateTrainersPrograms(ctx, req.UserId, id)
+	if err != nil {
+		return 0, err
+	}
+
 	return id, nil
 }
 

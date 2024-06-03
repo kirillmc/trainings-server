@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:postgresql://localhost:50323/training</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="railway" uuid="9c005243-f63e-4214-bddf-609fe7723ffc">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://monorail.proxy.rlwy.net:29265/railway</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

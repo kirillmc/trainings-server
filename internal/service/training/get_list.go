@@ -25,6 +25,26 @@ func (s *serv) GetPrograms(ctx context.Context, userId int64) ([]*model.TrainPro
 	return programs, nil
 }
 
+func (s *serv) GetPublicPrograms(ctx context.Context) ([]*model.TrainProgram, error) {
+	var programs []*model.TrainProgram
+
+	programs, err := s.trainingRepository.GetPublicPrograms(ctx)
+	if err != nil {
+		return nil, err
+	}
+
+	for i := range programs {
+		temp, err := s.trainingRepository.GetTrainerIdByProgramId(ctx, programs[i].Id)
+		if err != nil {
+			return nil, err
+		}
+
+		programs[i].UserId = temp
+	}
+
+	return programs, nil
+}
+
 func (s *serv) GetTrainDays(ctx context.Context, programId int64) ([]*model.TrainDay, error) {
 	tainDaysIds, err := s.trainingRepository.GetTrainDaysIdsByProgramId(ctx, programId)
 	if err != nil {

@@ -10,8 +10,8 @@ import (
 
 func (r *repo) CreateProgram(ctx context.Context, req *model.TrainProgramToCreate) (int64, error) {
 	builder := sq.Insert(trainProgramsTable).PlaceholderFormat(sq.Dollar).
-		Columns(programName, description, isPublic).
-		Values(req.ProgramName, req.Description, req.IsPublic).
+		Columns(programName, description, status).
+		Values(req.ProgramName, req.Description, req.Status).
 		Suffix(returnId)
 
 	query, args, err := builder.ToSql()
@@ -63,8 +63,8 @@ func (r *repo) CreateTrainDay(ctx context.Context, req *model.TrainDayToCreate) 
 
 func (r *repo) CreateExercise(ctx context.Context, req *model.ExerciseToCreate) (int64, error) {
 	builder := sq.Insert(exercisesTable).PlaceholderFormat(sq.Dollar).
-		Columns(exerciseName, description, pictures).
-		Values(req.ExerciseName, req.Description, req.Pictures).
+		Columns(exerciseName, description).
+		Values(req.ExerciseName, req.Description).
 		Suffix(returnId)
 
 	query, args, err := builder.ToSql()

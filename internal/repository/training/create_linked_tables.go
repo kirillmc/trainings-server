@@ -7,6 +7,32 @@ import (
 	"github.com/kirillmc/platform_common/pkg/db"
 )
 
+func (r *repo) CreateUsersTrainersPrograms(ctx context.Context, userId, trainerId, programId int64) error {
+	builder := sq.Insert(usersTrainersProgramsTable).
+		PlaceholderFormat(sq.Dollar).
+		Columns(userIdColumn, trainerIdColumn, programIdColumn).
+		Values(userId, trainerId, programId).
+		Suffix(returnId)
+
+	query, args, err := builder.ToSql()
+	if err != nil {
+		return err
+	}
+
+	q := db.Query{
+		Name:     "training_repository.CreateUsersTrainersPrograms",
+		QueryRaw: query,
+	}
+
+	var id int64
+
+	err = r.db.DB().QueryRowContext(ctx, q, args...).Scan(&id)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
 func (r *repo) CreateUsersPrograms(ctx context.Context, userId, programId int64) error {
 	builder := sq.Insert(usersProgramsTable).PlaceholderFormat(sq.Dollar).
 		Columns(userIdColumn, programIdColumn).
@@ -20,6 +46,31 @@ func (r *repo) CreateUsersPrograms(ctx context.Context, userId, programId int64)
 
 	q := db.Query{
 		Name:     "training_repository.CreateUsersPrograms",
+		QueryRaw: query,
+	}
+
+	var id int64
+
+	err = r.db.DB().QueryRowContext(ctx, q, args...).Scan(&id)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+func (r *repo) CreateTrainersPrograms(ctx context.Context, trainerId, programId int64) error {
+	builder := sq.Insert(trainersProgramsTable).PlaceholderFormat(sq.Dollar).
+		Columns(trainerIdColumn, programIdColumn).
+		Values(trainerId, programId).
+		Suffix(returnId)
+
+	query, args, err := builder.ToSql()
+	if err != nil {
+		return err
+	}
+
+	q := db.Query{
+		Name:     "training_repository.CreateTrainersPrograms",
 		QueryRaw: query,
 	}
 

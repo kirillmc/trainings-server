@@ -11,9 +11,9 @@
 13776||10|c|G
 13776||10|C|G
 13776||10|T|G</Grants>
-      <IntrospectionStateNumber>812</IntrospectionStateNumber>
+      <IntrospectionStateNumber>833</IntrospectionStateNumber>
       <ServerVersion>14.10</ServerVersion>
-      <StartupTime>1713286127</StartupTime>
+      <StartupTime>1715527262</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -54,7 +54,7 @@ false Africa/Bissau
 false Africa/Blantyre
 false Africa/Brazzaville
 false Africa/Bujumbura
-false Africa/Cairo
+true Africa/Cairo
 false Africa/Casablanca
 true Africa/Ceuta
 false Africa/Conakry
@@ -465,7 +465,7 @@ true EGST
 false EGT
 false EST
 true EST5EDT
-false Egypt
+true Egypt
 false Eire
 false Etc/GMT
 false Etc/GMT+0
@@ -810,7 +810,7 @@ true posixrules
 13411||10|C|G
 13411||-9223372036854775808|U|G
 13411||10|U|G</Grants>
-      <IntrospectionStateNumber>812</IntrospectionStateNumber>
+      <IntrospectionStateNumber>833</IntrospectionStateNumber>
       <ObjectId>16384</ObjectId>
       <OwnerName>training-user</OwnerName>
     </database>
@@ -4240,37 +4240,61 @@ true posixrules
     <schema id="262" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>812</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2024-04-17.08:41:28</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>833</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2024-05-12.15:29:44</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>527</StateNumber>
       <OwnerName>training-user</OwnerName>
     </schema>
     <sequence id="263" parent="262" name="days_programs_id_seq">
       <DasType>integer|0s</DasType>
-      <ObjectId>25376</ObjectId>
+      <ObjectId>33695</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <OwnerName>training-user</OwnerName>
     </sequence>
-    <sequence id="264" parent="262" name="exercises_days_id_seq">
+    <sequence id="264" parent="262" name="dots_id_seq">
       <DasType>integer|0s</DasType>
-      <ObjectId>25393</ObjectId>
+      <ObjectId>33625</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <OwnerName>training-user</OwnerName>
     </sequence>
-    <sequence id="265" parent="262" name="exercises_id_seq">
+    <sequence id="265" parent="262" name="exercises_days_id_seq">
       <DasType>integer|0s</DasType>
-      <ObjectId>25340</ObjectId>
+      <ObjectId>33712</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <OwnerName>training-user</OwnerName>
     </sequence>
-    <sequence id="266" parent="262" name="goose_db_version_id_seq">
+    <sequence id="266" parent="262" name="exercises_id_seq">
+      <DasType>integer|0s</DasType>
+      <ObjectId>33609</ObjectId>
+      <SequenceIdentity>1</SequenceIdentity>
+      <StartValue>1</StartValue>
+      <StateNumber>832</StateNumber>
+      <OwnerName>training-user</OwnerName>
+    </sequence>
+    <sequence id="267" parent="262" name="exercises_pictures_id_seq">
+      <DasType>integer|0s</DasType>
+      <ObjectId>33746</ObjectId>
+      <SequenceIdentity>1</SequenceIdentity>
+      <StartValue>1</StartValue>
+      <StateNumber>832</StateNumber>
+      <OwnerName>training-user</OwnerName>
+    </sequence>
+    <sequence id="268" parent="262" name="exercises_technics_technic_id_seq">
+      <DasType>integer|0s</DasType>
+      <ObjectId>33763</ObjectId>
+      <SequenceIdentity>1</SequenceIdentity>
+      <StartValue>1</StartValue>
+      <StateNumber>832</StateNumber>
+      <OwnerName>training-user</OwnerName>
+    </sequence>
+    <sequence id="269" parent="262" name="goose_db_version_id_seq">
       <DasType>integer|0s</DasType>
       <ObjectId>16385</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
@@ -4278,289 +4302,530 @@ true posixrules
       <StateNumber>735</StateNumber>
       <OwnerName>training-user</OwnerName>
     </sequence>
-    <sequence id="267" parent="262" name="sets_exercises_id_seq">
+    <sequence id="270" parent="262" name="pictures_id_seq">
       <DasType>integer|0s</DasType>
-      <ObjectId>25410</ObjectId>
+      <ObjectId>33618</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <OwnerName>training-user</OwnerName>
     </sequence>
-    <sequence id="268" parent="262" name="sets_id_seq">
+    <sequence id="271" parent="262" name="positions_dots_id_seq">
       <DasType>integer|0s</DasType>
-      <ObjectId>25349</ObjectId>
+      <ObjectId>33792</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <OwnerName>training-user</OwnerName>
     </sequence>
-    <sequence id="269" parent="262" name="statistics_id_seq">
+    <sequence id="272" parent="262" name="positions_id_seq">
       <DasType>integer|0s</DasType>
-      <ObjectId>25356</ObjectId>
+      <ObjectId>33634</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <OwnerName>training-user</OwnerName>
     </sequence>
-    <sequence id="270" parent="262" name="statistics_sets_id_seq">
+    <sequence id="273" parent="262" name="sets_exercises_id_seq">
       <DasType>integer|0s</DasType>
-      <ObjectId>25427</ObjectId>
+      <ObjectId>33729</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <OwnerName>training-user</OwnerName>
     </sequence>
-    <sequence id="271" parent="262" name="train_days_id_seq">
+    <sequence id="274" parent="262" name="sets_id_seq">
       <DasType>integer|0s</DasType>
-      <ObjectId>25331</ObjectId>
+      <ObjectId>33641</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <OwnerName>training-user</OwnerName>
     </sequence>
-    <sequence id="272" parent="262" name="train_programs_id_seq">
+    <sequence id="275" parent="262" name="statistics_id_seq">
       <DasType>integer|0s</DasType>
-      <ObjectId>25321</ObjectId>
+      <ObjectId>33648</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <OwnerName>training-user</OwnerName>
     </sequence>
-    <sequence id="273" parent="262" name="users_programs_id_seq">
+    <sequence id="276" parent="262" name="statistics_sets_id_seq">
       <DasType>integer|0s</DasType>
-      <ObjectId>25364</ObjectId>
+      <ObjectId>33809</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <OwnerName>training-user</OwnerName>
     </sequence>
-    <table id="274" parent="262" name="days_programs">
-      <ObjectId>25377</ObjectId>
-      <StateNumber>785</StateNumber>
+    <sequence id="277" parent="262" name="technics_positions_id_seq">
+      <DasType>integer|0s</DasType>
+      <ObjectId>33775</ObjectId>
+      <SequenceIdentity>1</SequenceIdentity>
+      <StartValue>1</StartValue>
+      <StateNumber>832</StateNumber>
+      <OwnerName>training-user</OwnerName>
+    </sequence>
+    <sequence id="278" parent="262" name="train_days_id_seq">
+      <DasType>integer|0s</DasType>
+      <ObjectId>33600</ObjectId>
+      <SequenceIdentity>1</SequenceIdentity>
+      <StartValue>1</StartValue>
+      <StateNumber>832</StateNumber>
+      <OwnerName>training-user</OwnerName>
+    </sequence>
+    <sequence id="279" parent="262" name="train_programs_id_seq">
+      <DasType>integer|0s</DasType>
+      <ObjectId>33590</ObjectId>
+      <SequenceIdentity>1</SequenceIdentity>
+      <StartValue>1</StartValue>
+      <StateNumber>832</StateNumber>
+      <OwnerName>training-user</OwnerName>
+    </sequence>
+    <sequence id="280" parent="262" name="trainers_programs_id_seq">
+      <DasType>integer|0s</DasType>
+      <ObjectId>33668</ObjectId>
+      <SequenceIdentity>1</SequenceIdentity>
+      <StartValue>1</StartValue>
+      <StateNumber>832</StateNumber>
+      <OwnerName>training-user</OwnerName>
+    </sequence>
+    <sequence id="281" parent="262" name="users_programs_id_seq">
+      <DasType>integer|0s</DasType>
+      <ObjectId>33656</ObjectId>
+      <SequenceIdentity>1</SequenceIdentity>
+      <StartValue>1</StartValue>
+      <StateNumber>832</StateNumber>
+      <OwnerName>training-user</OwnerName>
+    </sequence>
+    <sequence id="282" parent="262" name="users_trainers_programs_id_seq">
+      <DasType>integer|0s</DasType>
+      <ObjectId>33680</ObjectId>
+      <SequenceIdentity>1</SequenceIdentity>
+      <StartValue>1</StartValue>
+      <StateNumber>832</StateNumber>
+      <OwnerName>training-user</OwnerName>
+    </sequence>
+    <table id="283" parent="262" name="days_programs">
+      <ObjectId>33696</ObjectId>
+      <StateNumber>832</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>training-user</OwnerName>
     </table>
-    <table id="275" parent="262" name="exercises">
-      <ObjectId>25341</ObjectId>
-      <StateNumber>785</StateNumber>
+    <table id="284" parent="262" name="dots">
+      <ObjectId>33626</ObjectId>
+      <StateNumber>832</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>training-user</OwnerName>
     </table>
-    <table id="276" parent="262" name="exercises_days">
-      <ObjectId>25394</ObjectId>
-      <StateNumber>785</StateNumber>
+    <table id="285" parent="262" name="exercises">
+      <ObjectId>33610</ObjectId>
+      <StateNumber>832</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>training-user</OwnerName>
     </table>
-    <table id="277" parent="262" name="goose_db_version">
+    <table id="286" parent="262" name="exercises_days">
+      <ObjectId>33713</ObjectId>
+      <StateNumber>832</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>training-user</OwnerName>
+    </table>
+    <table id="287" parent="262" name="exercises_pictures">
+      <ObjectId>33747</ObjectId>
+      <StateNumber>832</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>training-user</OwnerName>
+    </table>
+    <table id="288" parent="262" name="exercises_technics">
+      <ObjectId>33764</ObjectId>
+      <StateNumber>832</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>training-user</OwnerName>
+    </table>
+    <table id="289" parent="262" name="goose_db_version">
       <ObjectId>16386</ObjectId>
       <StateNumber>735</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>training-user</OwnerName>
     </table>
-    <table id="278" parent="262" name="sets">
-      <ObjectId>25350</ObjectId>
-      <StateNumber>785</StateNumber>
+    <table id="290" parent="262" name="pictures">
+      <ObjectId>33619</ObjectId>
+      <StateNumber>832</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>training-user</OwnerName>
     </table>
-    <table id="279" parent="262" name="sets_exercises">
-      <ObjectId>25411</ObjectId>
-      <StateNumber>785</StateNumber>
+    <table id="291" parent="262" name="positions">
+      <ObjectId>33635</ObjectId>
+      <StateNumber>832</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>training-user</OwnerName>
     </table>
-    <table id="280" parent="262" name="statistics">
-      <ObjectId>25357</ObjectId>
-      <StateNumber>785</StateNumber>
+    <table id="292" parent="262" name="positions_dots">
+      <ObjectId>33793</ObjectId>
+      <StateNumber>832</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>training-user</OwnerName>
     </table>
-    <table id="281" parent="262" name="statistics_sets">
-      <ObjectId>25428</ObjectId>
-      <StateNumber>785</StateNumber>
+    <table id="293" parent="262" name="sets">
+      <ObjectId>33642</ObjectId>
+      <StateNumber>832</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>training-user</OwnerName>
     </table>
-    <table id="282" parent="262" name="train_days">
-      <ObjectId>25332</ObjectId>
-      <StateNumber>785</StateNumber>
+    <table id="294" parent="262" name="sets_exercises">
+      <ObjectId>33730</ObjectId>
+      <StateNumber>832</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>training-user</OwnerName>
     </table>
-    <table id="283" parent="262" name="train_programs">
-      <ObjectId>25322</ObjectId>
-      <StateNumber>785</StateNumber>
+    <table id="295" parent="262" name="statistics">
+      <ObjectId>33649</ObjectId>
+      <StateNumber>832</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>training-user</OwnerName>
     </table>
-    <table id="284" parent="262" name="users_programs">
-      <ObjectId>25365</ObjectId>
-      <StateNumber>785</StateNumber>
+    <table id="296" parent="262" name="statistics_sets">
+      <ObjectId>33810</ObjectId>
+      <StateNumber>832</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>training-user</OwnerName>
     </table>
-    <column id="285" parent="274" name="id">
+    <table id="297" parent="262" name="technics_positions">
+      <ObjectId>33776</ObjectId>
+      <StateNumber>832</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>training-user</OwnerName>
+    </table>
+    <table id="298" parent="262" name="train_days">
+      <ObjectId>33601</ObjectId>
+      <StateNumber>832</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>training-user</OwnerName>
+    </table>
+    <table id="299" parent="262" name="train_programs">
+      <ObjectId>33591</ObjectId>
+      <StateNumber>832</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>training-user</OwnerName>
+    </table>
+    <table id="300" parent="262" name="trainers_programs">
+      <ObjectId>33669</ObjectId>
+      <StateNumber>832</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>training-user</OwnerName>
+    </table>
+    <table id="301" parent="262" name="users_programs">
+      <ObjectId>33657</ObjectId>
+      <StateNumber>832</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>training-user</OwnerName>
+    </table>
+    <table id="302" parent="262" name="users_trainers_programs">
+      <ObjectId>33681</ObjectId>
+      <StateNumber>832</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>training-user</OwnerName>
+    </table>
+    <column id="303" parent="283" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;days_programs_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>785</StateNumber>
-      <SequenceId>25376</SequenceId>
+      <StateNumber>832</StateNumber>
+      <SequenceId>33695</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="286" parent="274" name="program_id">
+    <column id="304" parent="283" name="program_id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="287" parent="274" name="trains_day_id">
+    <column id="305" parent="283" name="trains_day_id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="288" parent="274" name="days_programs_program_id_fkey">
+    <foreign-key id="306" parent="283" name="days_programs_program_id_fkey">
       <ColNames>program_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>25383</ObjectId>
+      <ObjectId>33702</ObjectId>
       <OnDelete>cascade</OnDelete>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>25322</RefTableId>
+      <RefTableId>33591</RefTableId>
     </foreign-key>
-    <foreign-key id="289" parent="274" name="days_programs_trains_day_id_fkey">
+    <foreign-key id="307" parent="283" name="days_programs_trains_day_id_fkey">
       <ColNames>trains_day_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>25388</ObjectId>
+      <ObjectId>33707</ObjectId>
       <OnDelete>cascade</OnDelete>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>25332</RefTableId>
+      <RefTableId>33601</RefTableId>
     </foreign-key>
-    <index id="290" parent="274" name="days_programs_pkey">
+    <index id="308" parent="283" name="days_programs_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>25381</ObjectId>
+      <ObjectId>33700</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="291" parent="274" name="days_programs_pkey">
+    <key id="309" parent="283" name="days_programs_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>25382</ObjectId>
+      <ObjectId>33701</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>785</StateNumber>
-      <UnderlyingIndexId>25381</UnderlyingIndexId>
+      <StateNumber>832</StateNumber>
+      <UnderlyingIndexId>33700</UnderlyingIndexId>
     </key>
-    <column id="292" parent="275" name="id">
+    <column id="310" parent="284" name="id">
+      <DasType>integer|0s</DasType>
+      <DefaultExpression>nextval(&apos;dots_id_seq&apos;::regclass)</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>832</StateNumber>
+      <SequenceId>33625</SequenceId>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="311" parent="284" name="number">
+      <DasType>integer|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>832</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="312" parent="284" name="x_coordinate">
+      <DasType>double precision|0s</DasType>
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StateNumber>832</StateNumber>
+      <TypeId>701</TypeId>
+    </column>
+    <column id="313" parent="284" name="y_coordinate">
+      <DasType>double precision|0s</DasType>
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StateNumber>832</StateNumber>
+      <TypeId>701</TypeId>
+    </column>
+    <index id="314" parent="284" name="dots_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>33632</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>832</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="315" parent="284" name="dots_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>33633</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>832</StateNumber>
+      <UnderlyingIndexId>33632</UnderlyingIndexId>
+    </key>
+    <column id="316" parent="285" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;exercises_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>785</StateNumber>
-      <SequenceId>25340</SequenceId>
+      <StateNumber>832</StateNumber>
+      <SequenceId>33609</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="293" parent="275" name="exercise_name">
+    <column id="317" parent="285" name="exercise_name">
       <DasType>varchar(50)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="294" parent="275" name="pictures">
+    <column id="318" parent="285" name="description">
       <DasType>varchar(500)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="295" parent="275" name="description">
-      <DasType>varchar(500)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-      <StateNumber>785</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <index id="296" parent="275" name="exercises_pkey">
+    <index id="319" parent="285" name="exercises_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>25347</ObjectId>
+      <ObjectId>33616</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="297" parent="275" name="exercises_pkey">
+    <key id="320" parent="285" name="exercises_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>25348</ObjectId>
+      <ObjectId>33617</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>785</StateNumber>
-      <UnderlyingIndexId>25347</UnderlyingIndexId>
+      <StateNumber>832</StateNumber>
+      <UnderlyingIndexId>33616</UnderlyingIndexId>
     </key>
-    <column id="298" parent="276" name="id">
+    <column id="321" parent="286" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;exercises_days_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>785</StateNumber>
-      <SequenceId>25393</SequenceId>
+      <StateNumber>832</StateNumber>
+      <SequenceId>33712</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="299" parent="276" name="trains_day_id">
+    <column id="322" parent="286" name="trains_day_id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="300" parent="276" name="exercise_id">
+    <column id="323" parent="286" name="exercise_id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="301" parent="276" name="exercises_days_trains_day_id_fkey">
+    <foreign-key id="324" parent="286" name="exercises_days_trains_day_id_fkey">
       <ColNames>trains_day_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>25400</ObjectId>
+      <ObjectId>33719</ObjectId>
       <OnDelete>cascade</OnDelete>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>25332</RefTableId>
+      <RefTableId>33601</RefTableId>
     </foreign-key>
-    <foreign-key id="302" parent="276" name="exercises_days_exercise_id_fkey">
+    <foreign-key id="325" parent="286" name="exercises_days_exercise_id_fkey">
       <ColNames>exercise_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>25405</ObjectId>
+      <ObjectId>33724</ObjectId>
       <OnDelete>cascade</OnDelete>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>25341</RefTableId>
+      <RefTableId>33610</RefTableId>
     </foreign-key>
-    <index id="303" parent="276" name="exercises_days_pkey">
+    <index id="326" parent="286" name="exercises_days_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>25398</ObjectId>
+      <ObjectId>33717</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="304" parent="276" name="exercises_days_pkey">
+    <key id="327" parent="286" name="exercises_days_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>25399</ObjectId>
+      <ObjectId>33718</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>785</StateNumber>
-      <UnderlyingIndexId>25398</UnderlyingIndexId>
+      <StateNumber>832</StateNumber>
+      <UnderlyingIndexId>33717</UnderlyingIndexId>
     </key>
-    <column id="305" parent="277" name="id">
+    <column id="328" parent="287" name="id">
+      <DasType>integer|0s</DasType>
+      <DefaultExpression>nextval(&apos;exercises_pictures_id_seq&apos;::regclass)</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>832</StateNumber>
+      <SequenceId>33746</SequenceId>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="329" parent="287" name="exercise_id">
+      <DasType>integer|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>832</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="330" parent="287" name="pictures_id">
+      <DasType>integer|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StateNumber>832</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <foreign-key id="331" parent="287" name="exercises_pictures_exercise_id_fkey">
+      <ColNames>exercise_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>33753</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>832</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>33610</RefTableId>
+    </foreign-key>
+    <foreign-key id="332" parent="287" name="exercises_pictures_pictures_id_fkey">
+      <ColNames>pictures_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>33758</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>832</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>33619</RefTableId>
+    </foreign-key>
+    <index id="333" parent="287" name="exercises_pictures_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>33751</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>832</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="334" parent="287" name="exercises_pictures_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>33752</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>832</StateNumber>
+      <UnderlyingIndexId>33751</UnderlyingIndexId>
+    </key>
+    <column id="335" parent="288" name="technic_id">
+      <DasType>integer|0s</DasType>
+      <DefaultExpression>nextval(&apos;exercises_technics_technic_id_seq&apos;::regclass)</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>832</StateNumber>
+      <SequenceId>33763</SequenceId>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="336" parent="288" name="exercise_id">
+      <DasType>integer|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>832</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <foreign-key id="337" parent="288" name="exercises_technics_exercise_id_fkey">
+      <ColNames>exercise_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>33770</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>832</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>33610</RefTableId>
+    </foreign-key>
+    <index id="338" parent="288" name="exercises_technics_pkey">
+      <ColNames>technic_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>33768</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>832</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="339" parent="288" name="exercises_technics_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>33769</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>832</StateNumber>
+      <UnderlyingIndexId>33768</UnderlyingIndexId>
+    </key>
+    <column id="340" parent="289" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;goose_db_version_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4569,28 +4834,28 @@ true posixrules
       <SequenceId>16385</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="306" parent="277" name="version_id">
+    <column id="341" parent="289" name="version_id">
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>735</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="307" parent="277" name="is_applied">
+    <column id="342" parent="289" name="is_applied">
       <DasType>boolean|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>735</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <column id="308" parent="277" name="tstamp">
+    <column id="343" parent="289" name="tstamp">
       <DasType>timestamp|0s</DasType>
       <DefaultExpression>now()</DefaultExpression>
       <Position>4</Position>
       <StateNumber>735</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <index id="309" parent="277" name="goose_db_version_pkey">
+    <index id="344" parent="289" name="goose_db_version_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16391</ObjectId>
@@ -4599,374 +4864,672 @@ true posixrules
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="310" parent="277" name="goose_db_version_pkey">
+    <key id="345" parent="289" name="goose_db_version_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16392</ObjectId>
       <Primary>1</Primary>
       <StateNumber>735</StateNumber>
       <UnderlyingIndexId>16391</UnderlyingIndexId>
     </key>
-    <column id="311" parent="278" name="id">
+    <column id="346" parent="290" name="id">
+      <DasType>integer|0s</DasType>
+      <DefaultExpression>nextval(&apos;pictures_id_seq&apos;::regclass)</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>832</StateNumber>
+      <SequenceId>33618</SequenceId>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="347" parent="290" name="picture">
+      <DasType>varchar(500)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>832</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="348" parent="290" name="pictures_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>33623</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>832</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="349" parent="290" name="pictures_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>33624</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>832</StateNumber>
+      <UnderlyingIndexId>33623</UnderlyingIndexId>
+    </key>
+    <column id="350" parent="291" name="id">
+      <DasType>integer|0s</DasType>
+      <DefaultExpression>nextval(&apos;positions_id_seq&apos;::regclass)</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>832</StateNumber>
+      <SequenceId>33634</SequenceId>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="351" parent="291" name="number">
+      <DasType>integer|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>832</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="352" parent="291" name="positions_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>33639</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>832</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="353" parent="291" name="positions_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>33640</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>832</StateNumber>
+      <UnderlyingIndexId>33639</UnderlyingIndexId>
+    </key>
+    <column id="354" parent="292" name="id">
+      <DasType>integer|0s</DasType>
+      <DefaultExpression>nextval(&apos;positions_dots_id_seq&apos;::regclass)</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>832</StateNumber>
+      <SequenceId>33792</SequenceId>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="355" parent="292" name="position_id">
+      <DasType>integer|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>832</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="356" parent="292" name="dot_id">
+      <DasType>integer|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StateNumber>832</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <foreign-key id="357" parent="292" name="positions_dots_position_id_fkey">
+      <ColNames>position_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>33799</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>832</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>33635</RefTableId>
+    </foreign-key>
+    <foreign-key id="358" parent="292" name="positions_dots_dot_id_fkey">
+      <ColNames>dot_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>33804</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>832</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>33626</RefTableId>
+    </foreign-key>
+    <index id="359" parent="292" name="positions_dots_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>33797</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>832</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="360" parent="292" name="positions_dots_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>33798</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>832</StateNumber>
+      <UnderlyingIndexId>33797</UnderlyingIndexId>
+    </key>
+    <column id="361" parent="293" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;sets_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>785</StateNumber>
-      <SequenceId>25349</SequenceId>
+      <StateNumber>832</StateNumber>
+      <SequenceId>33641</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="312" parent="278" name="quantity">
+    <column id="362" parent="293" name="quantity">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="313" parent="278" name="weight">
+    <column id="363" parent="293" name="weight">
       <DasType>double precision|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <index id="314" parent="278" name="sets_pkey">
+    <index id="364" parent="293" name="sets_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>25354</ObjectId>
+      <ObjectId>33646</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="315" parent="278" name="sets_pkey">
+    <key id="365" parent="293" name="sets_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>25355</ObjectId>
+      <ObjectId>33647</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>785</StateNumber>
-      <UnderlyingIndexId>25354</UnderlyingIndexId>
+      <StateNumber>832</StateNumber>
+      <UnderlyingIndexId>33646</UnderlyingIndexId>
     </key>
-    <column id="316" parent="279" name="id">
+    <column id="366" parent="294" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;sets_exercises_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>785</StateNumber>
-      <SequenceId>25410</SequenceId>
+      <StateNumber>832</StateNumber>
+      <SequenceId>33729</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="317" parent="279" name="exercise_id">
+    <column id="367" parent="294" name="exercise_id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="318" parent="279" name="set_id">
+    <column id="368" parent="294" name="set_id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="319" parent="279" name="sets_exercises_exercise_id_fkey">
+    <foreign-key id="369" parent="294" name="sets_exercises_exercise_id_fkey">
       <ColNames>exercise_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>25417</ObjectId>
+      <ObjectId>33736</ObjectId>
       <OnDelete>cascade</OnDelete>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>25341</RefTableId>
+      <RefTableId>33610</RefTableId>
     </foreign-key>
-    <foreign-key id="320" parent="279" name="sets_exercises_set_id_fkey">
+    <foreign-key id="370" parent="294" name="sets_exercises_set_id_fkey">
       <ColNames>set_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>25422</ObjectId>
+      <ObjectId>33741</ObjectId>
       <OnDelete>cascade</OnDelete>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>25350</RefTableId>
+      <RefTableId>33642</RefTableId>
     </foreign-key>
-    <index id="321" parent="279" name="sets_exercises_pkey">
+    <index id="371" parent="294" name="sets_exercises_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>25415</ObjectId>
+      <ObjectId>33734</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="322" parent="279" name="sets_exercises_pkey">
+    <key id="372" parent="294" name="sets_exercises_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>25416</ObjectId>
+      <ObjectId>33735</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>785</StateNumber>
-      <UnderlyingIndexId>25415</UnderlyingIndexId>
+      <StateNumber>832</StateNumber>
+      <UnderlyingIndexId>33734</UnderlyingIndexId>
     </key>
-    <column id="323" parent="280" name="id">
+    <column id="373" parent="295" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;statistics_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>785</StateNumber>
-      <SequenceId>25356</SequenceId>
+      <StateNumber>832</StateNumber>
+      <SequenceId>33648</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="324" parent="280" name="time">
+    <column id="374" parent="295" name="time">
       <DasType>timestamp|0s</DasType>
       <DefaultExpression>now()</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="325" parent="280" name="quantity">
+    <column id="375" parent="295" name="quantity">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="326" parent="280" name="weight">
+    <column id="376" parent="295" name="weight">
       <DasType>double precision|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="327" parent="280" name="set_id">
+    <column id="377" parent="295" name="set_id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="328" parent="280" name="exercise_id">
+    <column id="378" parent="295" name="exercise_id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="329" parent="280" name="trains_day_id">
+    <column id="379" parent="295" name="trains_day_id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>7</Position>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="330" parent="280" name="program_id">
+    <column id="380" parent="295" name="program_id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>8</Position>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="331" parent="280" name="statistics_pkey">
+    <index id="381" parent="295" name="statistics_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>25362</ObjectId>
+      <ObjectId>33654</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="332" parent="280" name="statistics_pkey">
+    <key id="382" parent="295" name="statistics_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>25363</ObjectId>
+      <ObjectId>33655</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>785</StateNumber>
-      <UnderlyingIndexId>25362</UnderlyingIndexId>
+      <StateNumber>832</StateNumber>
+      <UnderlyingIndexId>33654</UnderlyingIndexId>
     </key>
-    <column id="333" parent="281" name="id">
+    <column id="383" parent="296" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;statistics_sets_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>785</StateNumber>
-      <SequenceId>25427</SequenceId>
+      <StateNumber>832</StateNumber>
+      <SequenceId>33809</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="334" parent="281" name="set_id">
+    <column id="384" parent="296" name="set_id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="335" parent="281" name="statistic_id">
+    <column id="385" parent="296" name="statistic_id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="336" parent="281" name="statistics_sets_set_id_fkey">
+    <foreign-key id="386" parent="296" name="statistics_sets_set_id_fkey">
       <ColNames>set_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>25434</ObjectId>
+      <ObjectId>33816</ObjectId>
       <OnDelete>cascade</OnDelete>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>25350</RefTableId>
+      <RefTableId>33642</RefTableId>
     </foreign-key>
-    <foreign-key id="337" parent="281" name="statistics_sets_statistic_id_fkey">
+    <foreign-key id="387" parent="296" name="statistics_sets_statistic_id_fkey">
       <ColNames>statistic_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>25439</ObjectId>
+      <ObjectId>33821</ObjectId>
       <OnDelete>cascade</OnDelete>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>25357</RefTableId>
+      <RefTableId>33649</RefTableId>
     </foreign-key>
-    <index id="338" parent="281" name="statistics_sets_pkey">
+    <index id="388" parent="296" name="statistics_sets_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>25432</ObjectId>
+      <ObjectId>33814</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="339" parent="281" name="statistics_sets_pkey">
+    <key id="389" parent="296" name="statistics_sets_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>25433</ObjectId>
+      <ObjectId>33815</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>785</StateNumber>
-      <UnderlyingIndexId>25432</UnderlyingIndexId>
+      <StateNumber>832</StateNumber>
+      <UnderlyingIndexId>33814</UnderlyingIndexId>
     </key>
-    <column id="340" parent="282" name="id">
+    <column id="390" parent="297" name="id">
+      <DasType>integer|0s</DasType>
+      <DefaultExpression>nextval(&apos;technics_positions_id_seq&apos;::regclass)</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>832</StateNumber>
+      <SequenceId>33775</SequenceId>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="391" parent="297" name="technic_id">
+      <DasType>integer|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>832</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="392" parent="297" name="position_id">
+      <DasType>integer|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StateNumber>832</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <foreign-key id="393" parent="297" name="technics_positions_technic_id_fkey">
+      <ColNames>technic_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>33782</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>832</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>33764</RefTableId>
+    </foreign-key>
+    <foreign-key id="394" parent="297" name="technics_positions_position_id_fkey">
+      <ColNames>position_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>33787</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>832</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>33635</RefTableId>
+    </foreign-key>
+    <index id="395" parent="297" name="technics_positions_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>33780</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>832</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="396" parent="297" name="technics_positions_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>33781</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>832</StateNumber>
+      <UnderlyingIndexId>33780</UnderlyingIndexId>
+    </key>
+    <column id="397" parent="298" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;train_days_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>785</StateNumber>
-      <SequenceId>25331</SequenceId>
+      <StateNumber>832</StateNumber>
+      <SequenceId>33600</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="341" parent="282" name="day_name">
+    <column id="398" parent="298" name="day_name">
       <DasType>varchar(50)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="342" parent="282" name="description">
+    <column id="399" parent="298" name="description">
       <DasType>varchar(500)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="343" parent="282" name="train_days_pkey">
+    <index id="400" parent="298" name="train_days_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>25338</ObjectId>
+      <ObjectId>33607</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="344" parent="282" name="train_days_pkey">
+    <key id="401" parent="298" name="train_days_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>25339</ObjectId>
+      <ObjectId>33608</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>785</StateNumber>
-      <UnderlyingIndexId>25338</UnderlyingIndexId>
+      <StateNumber>832</StateNumber>
+      <UnderlyingIndexId>33607</UnderlyingIndexId>
     </key>
-    <column id="345" parent="283" name="id">
+    <column id="402" parent="299" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;train_programs_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>785</StateNumber>
-      <SequenceId>25321</SequenceId>
+      <StateNumber>832</StateNumber>
+      <SequenceId>33590</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="346" parent="283" name="program_name">
+    <column id="403" parent="299" name="program_name">
       <DasType>varchar(50)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="347" parent="283" name="description">
+    <column id="404" parent="299" name="description">
       <DasType>varchar(500)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="348" parent="283" name="is_public">
-      <DasType>boolean|0s</DasType>
-      <DefaultExpression>false</DefaultExpression>
+    <column id="405" parent="299" name="status">
+      <DasType>integer|0s</DasType>
+      <DefaultExpression>0</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>785</StateNumber>
-      <TypeId>16</TypeId>
+      <StateNumber>832</StateNumber>
+      <TypeId>23</TypeId>
     </column>
-    <index id="349" parent="283" name="train_programs_pkey">
+    <index id="406" parent="299" name="train_programs_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>25329</ObjectId>
+      <ObjectId>33598</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="350" parent="283" name="train_programs_pkey">
+    <key id="407" parent="299" name="train_programs_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>25330</ObjectId>
+      <ObjectId>33599</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>785</StateNumber>
-      <UnderlyingIndexId>25329</UnderlyingIndexId>
+      <StateNumber>832</StateNumber>
+      <UnderlyingIndexId>33598</UnderlyingIndexId>
     </key>
-    <column id="351" parent="284" name="id">
+    <column id="408" parent="300" name="id">
+      <DasType>integer|0s</DasType>
+      <DefaultExpression>nextval(&apos;trainers_programs_id_seq&apos;::regclass)</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>832</StateNumber>
+      <SequenceId>33668</SequenceId>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="409" parent="300" name="trainer_id">
+      <DasType>integer|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>832</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="410" parent="300" name="program_id">
+      <DasType>integer|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StateNumber>832</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <foreign-key id="411" parent="300" name="trainers_programs_program_id_fkey">
+      <ColNames>program_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>33675</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>832</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>33591</RefTableId>
+    </foreign-key>
+    <index id="412" parent="300" name="trainers_programs_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>33673</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>832</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="413" parent="300" name="trainers_programs_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>33674</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>832</StateNumber>
+      <UnderlyingIndexId>33673</UnderlyingIndexId>
+    </key>
+    <column id="414" parent="301" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;users_programs_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>785</StateNumber>
-      <SequenceId>25364</SequenceId>
+      <StateNumber>832</StateNumber>
+      <SequenceId>33656</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="352" parent="284" name="user_id">
+    <column id="415" parent="301" name="user_id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="353" parent="284" name="program_id">
+    <column id="416" parent="301" name="program_id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="354" parent="284" name="users_programs_program_id_fkey">
+    <foreign-key id="417" parent="301" name="users_programs_program_id_fkey">
       <ColNames>program_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>25371</ObjectId>
+      <ObjectId>33663</ObjectId>
       <OnDelete>cascade</OnDelete>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>25322</RefTableId>
+      <RefTableId>33591</RefTableId>
     </foreign-key>
-    <index id="355" parent="284" name="users_programs_pkey">
+    <index id="418" parent="301" name="users_programs_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>25369</ObjectId>
+      <ObjectId>33661</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>785</StateNumber>
+      <StateNumber>832</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="356" parent="284" name="users_programs_pkey">
+    <key id="419" parent="301" name="users_programs_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>25370</ObjectId>
+      <ObjectId>33662</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>785</StateNumber>
-      <UnderlyingIndexId>25369</UnderlyingIndexId>
+      <StateNumber>832</StateNumber>
+      <UnderlyingIndexId>33661</UnderlyingIndexId>
+    </key>
+    <column id="420" parent="302" name="id">
+      <DasType>integer|0s</DasType>
+      <DefaultExpression>nextval(&apos;users_trainers_programs_id_seq&apos;::regclass)</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>832</StateNumber>
+      <SequenceId>33680</SequenceId>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="421" parent="302" name="user_id">
+      <DasType>integer|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>832</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="422" parent="302" name="trainer_id">
+      <DasType>integer|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StateNumber>832</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="423" parent="302" name="program_id">
+      <DasType>integer|0s</DasType>
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StateNumber>832</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="424" parent="302" name="is_user_agree">
+      <DasType>boolean|0s</DasType>
+      <DefaultExpression>false</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StateNumber>832</StateNumber>
+      <TypeId>16</TypeId>
+    </column>
+    <column id="425" parent="302" name="is_trainer_agree">
+      <DasType>boolean|0s</DasType>
+      <DefaultExpression>false</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StateNumber>832</StateNumber>
+      <TypeId>16</TypeId>
+    </column>
+    <foreign-key id="426" parent="302" name="users_trainers_programs_program_id_fkey">
+      <ColNames>program_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>33690</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>832</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>33591</RefTableId>
+    </foreign-key>
+    <index id="427" parent="302" name="users_trainers_programs_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>33688</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>832</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="428" parent="302" name="users_trainers_programs_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>33689</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>832</StateNumber>
+      <UnderlyingIndexId>33688</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>

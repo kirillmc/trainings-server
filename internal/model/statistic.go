@@ -3,7 +3,7 @@ package model
 import (
 	"time"
 
-	"google.golang.org/protobuf/types/known/wrapperspb"
+	"github.com/kirillmc/platform_common/pkg/nillable"
 )
 
 type Statistic struct {
@@ -28,6 +28,6 @@ type StatisticToCreate struct {
 
 type StatisticToUpdate struct {
 	Id       int64
-	Quantity *wrapperspb.Int64Value
-	Weight   *wrapperspb.DoubleValue
+	Quantity nillable.NilInt
+	Weight   nillable.NilDouble
 }

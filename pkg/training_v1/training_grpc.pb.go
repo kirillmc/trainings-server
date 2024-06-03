@@ -23,6 +23,7 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type TrainingV1Client interface {
+	GetPublicTrainingPrograms(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*GetPublicTrainingProgramsResponse, error)
 	GetTrainingPrograms(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetTrainingProgramsResponse, error)
 	GetTrainingProgram(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetTrainingProgramResponse, error)
 	GetTrainDays(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetTrainDaysResponse, error)
@@ -47,6 +48,9 @@ type TrainingV1Client interface {
 	DeleteExercise(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	DeleteSet(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	DeleteStatistic(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*empty.Empty, error)
+	AddProgramFromPublic(ctx context.Context, in *AddProgramFromPublicRequest, opts ...grpc.CallOption) (*empty.Empty, error)
+	SetTechnic(ctx context.Context, in *SetTechnicRequest, opts ...grpc.CallOption) (*empty.Empty, error)
+	GetTechnic(ctx context.Context, in *GetTechnicRequest, opts ...grpc.CallOption) (*GetTechnicResponse, error)
 }
 
 type trainingV1Client struct {
@@ -55,6 +59,15 @@ type trainingV1Client struct {
 
 func NewTrainingV1Client(cc grpc.ClientConnInterface) TrainingV1Client {
 	return &trainingV1Client{cc}
+}
+
+func (c *trainingV1Client) GetPublicTrainingPrograms(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*GetPublicTrainingProgramsResponse, error) {
+	out := new(GetPublicTrainingProgramsResponse)
+	err := c.cc.Invoke(ctx, "/training_v1.TrainingV1/GetPublicTrainingPrograms", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
 func (c *trainingV1Client) GetTrainingPrograms(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetTrainingProgramsResponse, error) {
@@ -273,10 +286,38 @@ func (c *trainingV1Client) DeleteStatistic(ctx context.Context, in *DeleteReques
 	return out, nil
 }
 
+func (c *trainingV1Client) AddProgramFromPublic(ctx context.Context, in *AddProgramFromPublicRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+	out := new(empty.Empty)
+	err := c.cc.Invoke(ctx, "/training_v1.TrainingV1/AddProgramFromPublic", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trainingV1Client) SetTechnic(ctx context.Context, in *SetTechnicRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+	out := new(empty.Empty)
+	err := c.cc.Invoke(ctx, "/training_v1.TrainingV1/SetTechnic", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trainingV1Client) GetTechnic(ctx context.Context, in *GetTechnicRequest, opts ...grpc.CallOption) (*GetTechnicResponse, error) {
+	out := new(GetTechnicResponse)
+	err := c.cc.Invoke(ctx, "/training_v1.TrainingV1/GetTechnic", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TrainingV1Server is the server API for TrainingV1 service.
 // All implementations must embed UnimplementedTrainingV1Server
 // for forward compatibility
 type TrainingV1Server interface {
+	GetPublicTrainingPrograms(context.Context, *empty.Empty) (*GetPublicTrainingProgramsResponse, error)
 	GetTrainingPrograms(context.Context, *GetRequest) (*GetTrainingProgramsResponse, error)
 	GetTrainingProgram(context.Context, *GetRequest) (*GetTrainingProgramResponse, error)
 	GetTrainDays(context.Context, *GetRequest) (*GetTrainDaysResponse, error)
@@ -301,6 +342,9 @@ type TrainingV1Server interface {
 	DeleteExercise(context.Context, *DeleteRequest) (*empty.Empty, error)
 	DeleteSet(context.Context, *DeleteRequest) (*empty.Empty, error)
 	DeleteStatistic(context.Context, *DeleteRequest) (*empty.Empty, error)
+	AddProgramFromPublic(context.Context, *AddProgramFromPublicRequest) (*empty.Empty, error)
+	SetTechnic(context.Context, *SetTechnicRequest) (*empty.Empty, error)
+	GetTechnic(context.Context, *GetTechnicRequest) (*GetTechnicResponse, error)
 	mustEmbedUnimplementedTrainingV1Server()
 }
 
@@ -308,6 +352,9 @@ type TrainingV1Server interface {
 type UnimplementedTrainingV1Server struct {
 }
 
+func (UnimplementedTrainingV1Server) GetPublicTrainingPrograms(context.Context, *empty.Empty) (*GetPublicTrainingProgramsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPublicTrainingPrograms not implemented")
+}
 func (UnimplementedTrainingV1Server) GetTrainingPrograms(context.Context, *GetRequest) (*GetTrainingProgramsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetTrainingPrograms not implemented")
 }
@@ -380,6 +427,15 @@ func (UnimplementedTrainingV1Server) DeleteSet(context.Context, *DeleteRequest) 
 func (UnimplementedTrainingV1Server) DeleteStatistic(context.Context, *DeleteRequest) (*empty.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteStatistic not implemented")
 }
+func (UnimplementedTrainingV1Server) AddProgramFromPublic(context.Context, *AddProgramFromPublicRequest) (*empty.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddProgramFromPublic not implemented")
+}
+func (UnimplementedTrainingV1Server) SetTechnic(context.Context, *SetTechnicRequest) (*empty.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SetTechnic not implemented")
+}
+func (UnimplementedTrainingV1Server) GetTechnic(context.Context, *GetTechnicRequest) (*GetTechnicResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetTechnic not implemented")
+}
 func (UnimplementedTrainingV1Server) mustEmbedUnimplementedTrainingV1Server() {}
 
 // UnsafeTrainingV1Server may be embedded to opt out of forward compatibility for this service.
@@ -391,6 +447,24 @@ type UnsafeTrainingV1Server interface {
 
 func RegisterTrainingV1Server(s grpc.ServiceRegistrar, srv TrainingV1Server) {
 	s.RegisterService(&TrainingV1_ServiceDesc, srv)
+}
+
+func _TrainingV1_GetPublicTrainingPrograms_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(empty.Empty)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrainingV1Server).GetPublicTrainingPrograms(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/training_v1.TrainingV1/GetPublicTrainingPrograms",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrainingV1Server).GetPublicTrainingPrograms(ctx, req.(*empty.Empty))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 
 func _TrainingV1_GetTrainingPrograms_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -825,6 +899,60 @@ func _TrainingV1_DeleteStatistic_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TrainingV1_AddProgramFromPublic_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddProgramFromPublicRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrainingV1Server).AddProgramFromPublic(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/training_v1.TrainingV1/AddProgramFromPublic",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrainingV1Server).AddProgramFromPublic(ctx, req.(*AddProgramFromPublicRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrainingV1_SetTechnic_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTechnicRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrainingV1Server).SetTechnic(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/training_v1.TrainingV1/SetTechnic",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrainingV1Server).SetTechnic(ctx, req.(*SetTechnicRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrainingV1_GetTechnic_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTechnicRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrainingV1Server).GetTechnic(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/training_v1.TrainingV1/GetTechnic",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrainingV1Server).GetTechnic(ctx, req.(*GetTechnicRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TrainingV1_ServiceDesc is the grpc.ServiceDesc for TrainingV1 service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -832,6 +960,10 @@ var TrainingV1_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "training_v1.TrainingV1",
 	HandlerType: (*TrainingV1Server)(nil),
 	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetPublicTrainingPrograms",
+			Handler:    _TrainingV1_GetPublicTrainingPrograms_Handler,
+		},
 		{
 			MethodName: "GetTrainingPrograms",
 			Handler:    _TrainingV1_GetTrainingPrograms_Handler,
@@ -927,6 +1059,18 @@ var TrainingV1_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DeleteStatistic",
 			Handler:    _TrainingV1_DeleteStatistic_Handler,
+		},
+		{
+			MethodName: "AddProgramFromPublic",
+			Handler:    _TrainingV1_AddProgramFromPublic_Handler,
+		},
+		{
+			MethodName: "SetTechnic",
+			Handler:    _TrainingV1_SetTechnic_Handler,
+		},
+		{
+			MethodName: "GetTechnic",
+			Handler:    _TrainingV1_GetTechnic_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

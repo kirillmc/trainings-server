@@ -12,16 +12,16 @@ func (r *repo) UpdateProgram(ctx context.Context, req *model.TrainProgramToUpdat
 	builder := sq.Update(trainProgramsTable).
 		PlaceholderFormat(sq.Dollar).Where(sq.Eq{idColumm: req.Id})
 
-	if req.ProgramName != nil {
+	if !req.ProgramName.IsEmpty {
 		builder = builder.Set(programName, req.ProgramName.Value)
 	}
 
-	if req.Description != nil {
+	if !req.Description.IsEmpty {
 		builder = builder.Set(description, req.Description.Value)
 	}
 
-	if req.IsPublic != nil {
-		builder = builder.Set(isPublic, req.IsPublic.Value)
+	if req.Status != model.Unknown {
+		builder = builder.Set(status, req.Status)
 	}
 
 	query, args, err := builder.ToSql()
@@ -46,11 +46,11 @@ func (r *repo) UpdateTrainDay(ctx context.Context, req *model.TrainDayToUpdate) 
 	builder := sq.Update(trainDaysTable).
 		PlaceholderFormat(sq.Dollar).Where(sq.Eq{idColumm: req.Id})
 
-	if req.DayName != nil {
+	if !req.DayName.IsEmpty {
 		builder = builder.Set(dayName, req.DayName.Value)
 	}
 
-	if req.Description != nil {
+	if !req.Description.IsEmpty {
 		builder = builder.Set(description, req.Description.Value)
 	}
 
@@ -76,15 +76,11 @@ func (r *repo) UpdateExercise(ctx context.Context, req *model.ExerciseToUpdate) 
 	builder := sq.Update(exercisesTable).
 		PlaceholderFormat(sq.Dollar).Where(sq.Eq{idColumm: req.Id})
 
-	if req.ExerciseName != nil {
+	if !req.ExerciseName.IsEmpty {
 		builder = builder.Set(exerciseName, req.ExerciseName.Value)
 	}
 
-	if req.Pictures != nil {
-		builder = builder.Set(pictures, req.Pictures.Value)
-	}
-
-	if req.Description != nil {
+	if !req.Description.IsEmpty {
 		builder = builder.Set(description, req.Description.Value)
 	}
 
@@ -110,11 +106,11 @@ func (r *repo) UpdateSet(ctx context.Context, req *model.SetToUpdate) error {
 	builder := sq.Update(setsTable).
 		PlaceholderFormat(sq.Dollar).Where(sq.Eq{idColumm: req.Id})
 
-	if req.Quantity != nil {
+	if !req.Quantity.IsEmpty {
 		builder = builder.Set(quantity, req.Quantity.Value)
 	}
 
-	if req.Weight != nil {
+	if !req.Weight.IsEmpty {
 		builder = builder.Set(weight, req.Weight.Value)
 	}
 
@@ -140,11 +136,11 @@ func (r *repo) UpdateStatistic(ctx context.Context, req *model.StatisticToUpdate
 	builder := sq.Update(statisticsTable).
 		PlaceholderFormat(sq.Dollar).Where(sq.Eq{idColumm: req.Id})
 
-	if req.Quantity != nil {
+	if !req.Quantity.IsEmpty {
 		builder = builder.Set(quantity, req.Quantity.Value)
 	}
 
-	if req.Weight != nil {
+	if !req.Weight.IsEmpty {
 		builder = builder.Set(weight, req.Weight.Value)
 	}
 
